@@ -5,6 +5,7 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
+import com.rnimmersivebars.ImmersiveBars;
 
 public class MainActivity extends ReactActivity {
 
@@ -33,7 +34,8 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    ImmersiveBars.changeBarColors(this, false);
     SplashScreen.show(this);
-    super.onCreate(null);
+    super.onCreate(savedInstanceState);
   }
 }

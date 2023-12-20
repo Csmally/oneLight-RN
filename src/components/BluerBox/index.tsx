@@ -1,26 +1,18 @@
-// import { BlurView } from '@react-native-community/blur';
-
-// function BlurBox() {
-//   console.log('9898webblur');
-//   return <BlurView style={{ flex: 1 }} blurType='xlight' blurAmount={50} />;
-// }
-
-// export default BlurBox;
-
 import { BlurView } from '@react-native-community/blur';
-import { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
 
 function BlurBox() {
-  const [isShow, setIsShow] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsShow(true);
-    }, 500);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-  return isShow && <BlurView style={{ flex: 1 }} blurType='xlight' blurAmount={50} />;
+  return <BlurView style={styles.blur} blurType='xlight' blurAmount={50} />;
 }
+
+const styles = StyleSheet.create({
+  blur: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+  },
+});
 
 export default BlurBox;

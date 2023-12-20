@@ -18,6 +18,8 @@ import { HomeScreenContext } from '../utils/context';
 import FastImage, { FastImageProps } from 'react-native-fast-image';
 import OlText from '@/components/OneLightText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const AnimatedFastImage = Animated.createAnimatedComponent<FastImageProps>(FastImage as any);
 
@@ -75,6 +77,7 @@ function InfoBar() {
     };
   });
   const { top } = useSafeAreaInsets();
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   return (
     <View style={{ paddingTop: top, zIndex: 2 }}>
       <Animated.View style={styles.container} onLayout={setHotAreaWidth}>
@@ -83,6 +86,7 @@ function InfoBar() {
             name='location-arrow'
             onPress={() => {
               console.log('9898我是定位位置');
+              navigation.navigate('Test');
             }}
             size={20}
             color={commonStyles.black}

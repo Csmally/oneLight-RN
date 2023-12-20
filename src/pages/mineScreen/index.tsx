@@ -11,12 +11,15 @@ import UserInfoBar from './components/UserInfoBar';
 import OlText from '@/components/OneLightText';
 import { logout } from '@/utils/login';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { commonStyles } from '@/common/styles';
 import RootView from '@/components/RootView';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 function MineScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const goPage = () => {
     console.log('9898下一页');
+    navigation.navigate('Test');
   };
   // 动画共享滑动距离
   const sharedScrollY = useSharedValue(0);

@@ -1,17 +1,14 @@
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import BarItem from './components/BarItem';
 import PublishTool from './components/PublishTool';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import BlurBox from '@/components/BluerBox/index';
 
 function BottomTabBar(props: BottomTabBarProps) {
-  const isIos = Platform.OS === 'ios';
   const { state, navigation } = props;
   return (
-    <View style={[styles.container, isIos ? styles.containerForIos : styles.containerForOthers]}>
-      <View style={styles.blurContainer}>
-        <BlurBox />
-      </View>
+    <View style={[styles.container]}>
+      <BlurBox />
       <BarItem
         currentIndex={state.index}
         route={state.routes[0]}
@@ -48,20 +45,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     paddingTop: 10,
-  },
-  containerForIos: {
     paddingBottom: 40,
-  },
-  containerForOthers: {
-    paddingBottom: 20,
-  },
-  blurContainer: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    overflow: 'hidden',
   },
 });
 

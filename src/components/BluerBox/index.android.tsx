@@ -1,18 +1,18 @@
-import { BlurView } from '@react-native-community/blur';
-import { useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 
 function BlurBox() {
-  console.log('9898安卓blur');
-  const [isShow, setIsShow] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsShow(true);
-    }, 500);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-  return isShow && <BlurView style={{ flex: 1 }} blurType='xlight' blurAmount={50} />;
+  return <View style={styles.blur}></View>;
 }
+
+const styles = StyleSheet.create({
+  blur: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    backgroundColor: 'rgba(240, 242, 243, 0.98)',
+  },
+});
 
 export default BlurBox;

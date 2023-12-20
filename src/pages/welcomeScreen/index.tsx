@@ -1,10 +1,10 @@
 import { StyleSheet, View } from 'react-native';
-import { BlurView } from '@react-native-community/blur';
 import PageCounter from './components/PageCounter';
 import { useState, useEffect } from 'react';
 import OpacitySwiper from './components/OpacitySwiper';
 import SloganTab from './components/SloganTab';
 import RootView from '@/components/RootView';
+import BlurBox from '@/components/BluerBox';
 
 const imgUrls = [
   'https://tuchuangs.com/imgs/2023/04/23/945f7dee14fb39f4.jpeg',
@@ -29,12 +29,7 @@ function WelcomeScreen() {
     <RootView>
       <OpacitySwiper activeIndex={activeIndex} imgUrls={imgUrls} />
       <View style={styles.container}>
-        <BlurView
-          style={styles.blurView}
-          blurType='xlight'
-          blurAmount={15}
-          reducedTransparencyFallbackColor='white'
-        />
+        <BlurBox />
         <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
         <SloganTab />
       </View>
@@ -52,14 +47,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: '60%',
-    overflow: 'hidden',
-  },
-  blurView: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
   },
 });
 

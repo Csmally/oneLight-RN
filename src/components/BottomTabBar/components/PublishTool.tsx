@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 15,
-    overflow: 'hidden',
   },
   submitBtn: {
     width: 55,
