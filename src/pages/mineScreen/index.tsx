@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import BusinessInfoBar from './components/BusinessInfoBar';
 import OrdersBar from './components/OrdersBar';
 import ToolsBar from './components/ToolsBar';
-import LinearGradient from 'react-native-linear-gradient';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import AnimatedHeader from './components/AnimatedHeader';
 import { MineScreenContext } from './utils/context';
@@ -14,6 +13,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import RootView from '@/components/RootView';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import FeedBackBar from './components/FeedBackBar';
 
 function MineScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -37,13 +37,6 @@ function MineScreen() {
   return (
     <MineScreenContext.Provider value={providerValue}>
       <RootView>
-        <LinearGradient
-          style={styles.topbg}
-          colors={['rgba(160, 252, 192,0.2)', 'rgba(160, 252, 192,0.1)', 'rgba(160, 252, 192,0)']}
-          start={{ x: 1, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          locations={[0.1, 0.5, 1]}
-        />
         <Animated.ScrollView
           contentInsetAdjustmentBehavior='never'
           showsVerticalScrollIndicator={false}
@@ -58,6 +51,7 @@ function MineScreen() {
           <BusinessInfoBar />
           <OrdersBar />
           <ToolsBar />
+          <FeedBackBar />
           <OlText onPress={logout}>退出登录</OlText>
           <OlText onPress={goPage}>跳转跳转跳转跳转跳转</OlText>
           <View style={styles.aa} />
