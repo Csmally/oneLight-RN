@@ -7,7 +7,7 @@ import MarketScreen from './marketScreen';
 import CircleScreen from './circleScreen';
 import PublishScreen from './publishScreen';
 import TestScreen from './testScreen';
-import AddNewsScreen from './newsTypeChooseScreen';
+import NewsTypeChooseScreen from './newsTypeChooseScreen';
 
 const AppPaths: Route[] = [
   {
@@ -24,7 +24,7 @@ const AppPaths: Route[] = [
   },
   {
     path: PATH.NEWS_TYPE_CHOOSE_SCREEN,
-    component: AddNewsScreen,
+    component: NewsTypeChooseScreen,
     title: '类型',
     headerShown: false,
     animation: 'fade',

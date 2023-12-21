@@ -1,3 +1,4 @@
+import { PATH } from '@/common/consts';
 import { commonStyles } from '@/common/styles';
 import OlText from '@/components/OneLightText';
 import { useScreenNavigation } from '@/utils/hooks';
@@ -20,7 +21,7 @@ function AddTypeItem({ typeInfo }: AddTypeItemProps) {
   const navigation = useScreenNavigation();
   const { bgColor = 'pink', title = '标题', desc = '描述内容', descImg = '' } = typeInfo;
   const goPublish = () => {
-    navigation.navigate('Test');
+    navigation.navigate(PATH.PUBLISH_SCREEN);
   };
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
