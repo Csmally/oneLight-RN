@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import OlText from '@/components/OneLightText';
 import RootView from '@/components/RootView';
 import { useScreenNavigation } from '@/utils/hooks';
@@ -7,11 +6,11 @@ function PublishScreen() {
   const navigation = useScreenNavigation();
   const tt = () => {
     console.log('9898sssaaa');
-    navigation.navigate('Test2');
+    navigation.navigate('Test');
   };
   return (
-    <RootView style={styles.page}>
-      <OlText>我是发布页</OlText>
+    <RootView>
+      <OlText>我是发布页1</OlText>
       <OlText>我是发布页</OlText>
       <OlText>我是发布页</OlText>
       <OlText>我是发布页</OlText>
@@ -20,11 +19,5 @@ function PublishScreen() {
     </RootView>
   );
 }
-
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: 'pink',
-  },
-});
 
 export default PublishScreen;

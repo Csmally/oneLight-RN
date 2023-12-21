@@ -9,6 +9,8 @@ import { RootSiblingParent } from 'react-native-root-siblings';
 import { PATH } from '@/common/consts';
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
+import { commonStyles } from '@/common/styles';
+import { Platform } from 'react-native';
 
 // 顶级根路由栈
 const Stack = createNativeStackNavigator();
@@ -31,6 +33,17 @@ function App() {
               statusBarColor: 'transparent',
               headerTitleAlign: 'center',
               statusBarStyle: 'dark',
+              headerShadowVisible: false,
+              headerTitleStyle: {
+                color: commonStyles.black,
+                fontWeight: 'bold',
+              },
+              headerStyle: {
+                backgroundColor:
+                  Platform.OS === 'android' ? 'rgba(246, 248, 249, 0.97)' : 'transparent',
+              },
+              headerTransparent: true,
+              headerBlurEffect: 'light',
             }}>
             <Stack.Screen
               name={PATH.MAIN_SCREEN}
@@ -45,7 +58,7 @@ function App() {
                   title: route.title,
                   presentation: route.presentation ?? 'card',
                   headerShown: route.headerShown ?? true,
-                  headerTransparent: route.headerTransparent ?? false,
+                  headerTransparent: route.headerTransparent ?? true,
                   animation: route.animation ?? 'default',
                 }}
                 key={route.path}

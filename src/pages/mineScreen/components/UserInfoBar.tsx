@@ -98,9 +98,9 @@ const styles = StyleSheet.create({
     ...getCommonShadowStyle(),
   },
   avatar: {
-    width: 116,
+    width: 100,
     aspectRatio: 1,
-    borderRadius: 58,
+    borderRadius: 50,
   },
   genderIcon: {
     width: 28,
