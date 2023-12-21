@@ -14,13 +14,14 @@ const apiVersion = {
 };
 
 enum PATH {
-  MAINSCREEN = 'MAINSCREEN', // 主页底部导航栏路由BottomTabs
-  WELCOMESCREEN = 'WELCOMESCREEN', //欢迎页
-  LOGINSCREEN = 'LOGINSCREEN', // 登录页
-  HOMESCREEN = 'HOMESCREEN', // 首页
-  MARKETSCREEN = 'MARKETSCREEN', // 集市
-  CIRCLESCREEN = 'CIRCLESCREEN', // 圈子
-  MINESCREEN = 'MINESCREEN', // 我的
+  MAIN_SCREEN = 'MAIN_SCREEN', // 主页底部导航栏路由BottomTabs
+  WELCOME_SCREEN = 'WELCOME_SCREEN', //欢迎页
+  LOGIN_SCREEN = 'LOGIN_SCREEN', // 登录页
+  HOME_SCREEN = 'HOME_SCREEN', // 首页
+  MARKET_SCREEN = 'MARKET_SCREEN', // 集市
+  CIRCLE_SCREEN = 'CIRCLE_SCREEN', // 圈子
+  MINE_SCREEN = 'MINE_SCREEN', // 我的
+  NEWS_TYPE_CHOOSE_SCREEN = 'NEWS_TYPE_CHOOSE_SCREEN', //消息发布类型选择
 }
 
 export { appVersion, apiVersion, PATH };

@@ -12,7 +12,7 @@ function SloganTab() {
     console.log('9898加入我们！！！');
   };
   const loginHandler = () => {
-    navigation.navigate(PATH.LOGINSCREEN);
+    navigation.navigate(PATH.LOGIN_SCREEN);
   };
   return (
     <View style={styles.container}>

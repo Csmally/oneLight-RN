@@ -7,51 +7,60 @@ import MarketScreen from './marketScreen';
 import CircleScreen from './circleScreen';
 import TestScreen from './testScreen';
 import TestScreen1 from './testScreen1';
+import AddNewsScreen from './newsTypeChooseScreen';
 
 const AppPaths: Route[] = [
   {
-    path: PATH.WELCOMESCREEN,
+    path: PATH.WELCOME_SCREEN,
     component: WelcomeScreen,
     title: '欢迎',
     headerShown: false,
   },
   {
-    path: PATH.LOGINSCREEN,
+    path: PATH.LOGIN_SCREEN,
     component: LoginScreen,
     title: '登录',
     presentation: 'modal',
   },
   {
+    path: PATH.NEWS_TYPE_CHOOSE_SCREEN,
+    component: AddNewsScreen,
+    title: '发布类型',
+    presentation: 'transparentModal',
+    headerShown: false,
+    animation: 'fade',
+  },
+  {
     path: 'Test',
     component: TestScreen,
     title: '测试1',
+    headerShown: false,
   },
   {
     path: 'Test2',
     component: TestScreen1,
     title: '测试2',
-    presentation: 'modal',
   },
 ];
 
 const RootMainPaths = [
   {
-    path: PATH.HOMESCREEN,
+    path: PATH.HOME_SCREEN,
     component: HomeScreen,
     title: '首页',
   },
   {
-    path: PATH.MARKETSCREEN,
+    path: PATH.MARKET_SCREEN,
     component: MarketScreen,
     title: '集市',
   },
   {
-    path: PATH.CIRCLESCREEN,
+    path: PATH.CIRCLE_SCREEN,
     component: CircleScreen,
     title: '圈子',
   },
   {
-    path: PATH.MINESCREEN,
+    path: PATH.MINE_SCREEN,
     component: MineScreen,
     title: '我的',
   },

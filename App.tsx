@@ -25,7 +25,7 @@ function App() {
       <StoreContext.Provider value={stores}>
         <NavigationContainer onReady={hideSplashScreen}>
           <Stack.Navigator
-            initialRouteName={isLoadedApp ? PATH.MAINSCREEN : PATH.WELCOMESCREEN}
+            initialRouteName={isLoadedApp ? PATH.MAIN_SCREEN : PATH.WELCOME_SCREEN}
             screenOptions={{
               statusBarTranslucent: true,
               statusBarColor: 'transparent',
@@ -33,7 +33,7 @@ function App() {
               statusBarStyle: 'dark',
             }}>
             <Stack.Screen
-              name={PATH.MAINSCREEN}
+              name={PATH.MAIN_SCREEN}
               component={RootMainRoutes}
               options={{ headerShown: false, title: '' }}
             />
@@ -45,6 +45,8 @@ function App() {
                   title: route.title,
                   presentation: route.presentation ?? 'card',
                   headerShown: route.headerShown ?? true,
+                  headerTransparent: route.headerTransparent ?? false,
+                  animation: route.animation ?? 'default',
                 }}
                 key={route.path}
               />

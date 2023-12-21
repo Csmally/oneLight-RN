@@ -1,11 +1,13 @@
 import { commonStyles } from '@/common/styles';
-import { BlurView } from '@react-native-community/blur';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import AddTypeItem from './components/AddTypeItem';
 import FastImage, { FastImageProps } from 'react-native-fast-image';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useEffect } from 'react';
 import RootView from '@/components/RootView';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import BlurBox from '@/components/BluerBox';
 
 const Types = [
   {
@@ -38,7 +40,7 @@ const Types = [
   },
 ];
 
-type AddNewsScreenProps = {
+type NewsTypeChooseScreenProps = {
   navigation: any;
   // eslint-disable-next-line no-unused-vars
   setModalVisible: (flag: boolean) => void;
@@ -46,7 +48,8 @@ type AddNewsScreenProps = {
 
 const AnimatedFastImage = Animated.createAnimatedComponent<FastImageProps>(FastImage as any);
 
-function AddNewsScreen({ setModalVisible, navigation }: AddNewsScreenProps) {
+function NewsTypeChooseScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   // 关闭按钮旋转动画
   const rotation = useSharedValue(0);
   const animatedStyle = useAnimatedStyle(() => {
@@ -64,37 +67,32 @@ function AddNewsScreen({ setModalVisible, navigation }: AddNewsScreenProps) {
   useEffect(() => {
     startAnimation();
   }, []);
-  const closeModal = () => {
-    setModalVisible(false);
+  const cancelChoose = () => {
+    navigation.goBack();
   };
   return (
-    <RootView style={styles.page}>
-      <BlurView style={styles.blur} blurType='xlight' blurAmount={50} />
+    <View style={styles.page}>
+      <BlurBox />
       <View style={styles.container}>
         <View style={styles.main}>
           {Types.map(item => (
-            <AddTypeItem
-              key={item.id}
-              typeInfo={item}
-              setModalVisible={setModalVisible}
-              navigation={navigation}
-            />
+            <AddTypeItem key={item.id} typeInfo={item} />
           ))}
         </View>
-        <TouchableWithoutFeedback onPress={closeModal}>
+        <TouchableWithoutFeedback onPress={cancelChoose}>
           <AnimatedFastImage
             source={require('./static/publish.png')}
             style={[styles.close, animatedStyle]}
           />
         </TouchableWithoutFeedback>
       </View>
-    </RootView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   page: {
-    overflow: 'hidden',
+    flex: 1,
   },
   blur: {
     position: 'absolute',
@@ -106,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     position: 'absolute',
-    bottom: 40,
+    bottom: 33,
     display: 'flex',
     alignItems: 'center',
     paddingHorizontal: commonStyles.pageBorderGap * 2,
@@ -120,4 +118,4 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
 });
-export default AddNewsScreen;
+export default NewsTypeChooseScreen;

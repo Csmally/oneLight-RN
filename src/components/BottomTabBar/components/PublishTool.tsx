@@ -1,38 +1,26 @@
+import { PATH } from '@/common/consts';
 import BlurBox from '@/components/BluerBox/index';
-import AddNewsScreen from '@/pages/addNewsScreen';
-import { memo, useState } from 'react';
-import { Modal, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { memo } from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-type PublishToolProps = {
-  navigation: any;
-};
-function PublishTool({ navigation }: PublishToolProps) {
-  const [modalVisible, setModalVisible] = useState(false);
+function PublishTool() {
+  const navigation = useNavigation<any>();
   const openModal = () => {
-    setModalVisible(true);
+    navigation.navigate(PATH.NEWS_TYPE_CHOOSE_SCREEN);
   };
   return (
-    <>
-      <Modal
-        animationType='fade'
-        hardwareAccelerated
-        visible={modalVisible}
-        transparent
-        statusBarTranslucent>
-        <AddNewsScreen setModalVisible={setModalVisible} navigation={navigation} />
-      </Modal>
-      <TouchableWithoutFeedback onPress={openModal}>
-        <View style={styles.container}>
-          <View style={styles.tool}>
-            <View style={styles.blurContainer}>
-              <BlurBox />
-            </View>
-            <FastImage source={require('../static/publish.png')} style={styles.submitBtn} />
+    <TouchableWithoutFeedback onPress={openModal}>
+      <View style={styles.container}>
+        <View style={styles.tool}>
+          <View style={styles.blurContainer}>
+            <BlurBox />
           </View>
+          <FastImage source={require('../static/publish.png')} style={styles.submitBtn} />
         </View>
-      </TouchableWithoutFeedback>
-    </>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 

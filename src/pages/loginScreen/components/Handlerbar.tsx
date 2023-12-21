@@ -24,7 +24,7 @@ function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
     }
     const isLogin = await login(mobile, msgCode);
     if (!isLogin) return;
-    navigation.reset({ index: 0, routes: [{ name: PATH.MAINSCREEN }] });
+    navigation.reset({ index: 0, routes: [{ name: PATH.MAIN_SCREEN }] });
   };
   return (
     <Animated.View layout={Layout.duration(300)} style={styles.btnContainer}>

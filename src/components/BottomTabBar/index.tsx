@@ -21,7 +21,7 @@ function BottomTabBar(props: BottomTabBarProps) {
         selfIndex={1}
         navigation={navigation}
       />
-      <PublishTool navigation={navigation} />
+      <PublishTool />
       <BarItem
         currentIndex={state.index}
         route={state.routes[2]}

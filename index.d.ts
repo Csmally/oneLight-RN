@@ -1,8 +1,9 @@
 type Route = {
   path: string;
-  component: React.FC;
+  component: React.FC<any>;
   title: string;
   headerShown?: boolean;
+  headerTransparent?: boolean;
   presentation?:
     | 'card'
     | 'modal'
@@ -12,6 +13,16 @@ type Route = {
     | 'fullScreenModal'
     | 'formSheet'
     | undefined;
+  animation?:
+    | 'default'
+    | 'fade'
+    | 'fade_from_bottom'
+    | 'flip'
+    | 'simple_push'
+    | 'slide_from_bottom'
+    | 'slide_from_right'
+    | 'slide_from_left'
+    | 'none';
 };
 
 // 信息 常见：首页一条发布信息

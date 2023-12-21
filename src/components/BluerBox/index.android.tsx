@@ -6,11 +6,7 @@ function BlurBox() {
 
 const styles = StyleSheet.create({
   blur: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(240, 242, 243, 0.98)',
   },
 });

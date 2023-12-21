@@ -15,9 +15,9 @@ function TestScreen() {
       <OlText>我是路由测试页</OlText>
       <OlText>我是路由测试页</OlText>
       <OlText>我是路由测试页</OlText>
+      <OlText onPress={tt}>我是路由测试页----点击1122</OlText>
       <OlText>我是路由测试页</OlText>
       <OlText>我是路由测试页</OlText>
-      <OlText onPress={tt}>我是路由测试页----点击</OlText>
     </RootView>
   );
 }

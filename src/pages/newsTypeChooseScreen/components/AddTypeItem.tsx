@@ -1,12 +1,13 @@
 import { commonStyles } from '@/common/styles';
 import OlText from '@/components/OneLightText';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type AddTypeItemProps = {
-  navigation: any;
   typeInfo: {
     bgColor: string;
     title: string;
@@ -14,15 +15,13 @@ type AddTypeItemProps = {
     descImg: string;
     id: string;
   };
-  // eslint-disable-next-line no-unused-vars
-  setModalVisible: (flag: boolean) => void;
 };
 
-function AddTypeItem({ typeInfo, setModalVisible, navigation }: AddTypeItemProps) {
+function AddTypeItem({ typeInfo }: AddTypeItemProps) {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const { bgColor = 'pink', title = '标题', desc = '描述内容', descImg = '' } = typeInfo;
   const goPublish = () => {
-    setModalVisible(false);
-    navigation.push('Test2');
+    navigation.push('Test');
   };
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
