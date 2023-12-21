@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 import OlText from '@/components/OneLightText';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import RootView from '@/components/RootView';
+import { useScreenNavigation } from '@/utils/hooks';
 
 function TestScreen() {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useScreenNavigation();
   const tt = () => {
     console.log('9898sssaaa');
     navigation.navigate('Test2');

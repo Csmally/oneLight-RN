@@ -1,12 +1,12 @@
 import { PATH } from '@/common/consts';
-import BlurBox from '@/components/BluerBox/index';
-import { useNavigation } from '@react-navigation/native';
+import BlurBox from '@/components/BluerBox';
+import { useScreenNavigation } from '@/utils/hooks';
 import { memo } from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 function PublishTool() {
-  const navigation = useNavigation<any>();
+  const navigation = useScreenNavigation();
   const openModal = () => {
     navigation.navigate(PATH.NEWS_TYPE_CHOOSE_SCREEN);
   };

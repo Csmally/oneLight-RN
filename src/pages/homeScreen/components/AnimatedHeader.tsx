@@ -5,7 +5,7 @@ import Animated, { Extrapolation, interpolate, useAnimatedStyle } from 'react-na
 import { StyleSheet, View } from 'react-native';
 import { useContext } from 'react';
 import { HomeScreenContext } from '../utils/context';
-import BlurBox from '@/components/BluerBox/index';
+import BlurBox from '@/components/BluerBox';
 
 function AnimatedHeader() {
   const { sharedScrollY, initTopbarHeight } = useContext(HomeScreenContext);

@@ -2,12 +2,11 @@ import { commonStyles, getCommonShadowStyle } from '@/common/styles';
 import { memo } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import OlText from '@/components/OneLightText';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { PATH } from '@/common/consts';
+import { useScreenNavigation } from '@/utils/hooks';
 
 function SloganTab() {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useScreenNavigation();
   const joinUs = () => {
     console.log('9898加入我们！！！');
   };

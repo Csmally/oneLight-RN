@@ -25,8 +25,7 @@ const AppPaths: Route[] = [
   {
     path: PATH.NEWS_TYPE_CHOOSE_SCREEN,
     component: AddNewsScreen,
-    title: '发布类型',
-    presentation: 'transparentModal',
+    title: '类型',
     headerShown: false,
     animation: 'fade',
   },
@@ -34,7 +33,7 @@ const AppPaths: Route[] = [
     path: 'Test',
     component: TestScreen,
     title: '测试1',
-    headerShown: false,
+    animation: 'slide_from_bottom',
   },
   {
     path: 'Test2',

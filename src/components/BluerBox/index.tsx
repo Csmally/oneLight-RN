@@ -1,4 +1,5 @@
 import { BlurView } from '@react-native-community/blur';
+import { memo } from 'react';
 import { StyleSheet } from 'react-native';
 
 function BlurBox() {
@@ -11,4 +12,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BlurBox;
+export default memo(BlurBox);

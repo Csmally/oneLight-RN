@@ -1,9 +1,8 @@
 import { PATH } from '@/common/consts';
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
 import OlText from '@/components/OneLightText';
+import { useScreenNavigation } from '@/utils/hooks';
 import { login } from '@/utils/login';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { memo } from 'react';
 import { StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -16,7 +15,7 @@ type HandlerbarProps = {
 };
 
 function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useScreenNavigation();
   const loginHandle = async () => {
     if (!isShowPassCode || !msgCode) {
       Toast.show(`请输入${!isShowPassCode ? '手机号码' : '验证码'}`);

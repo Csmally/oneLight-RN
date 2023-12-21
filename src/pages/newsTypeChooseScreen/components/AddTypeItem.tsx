@@ -1,10 +1,9 @@
 import { commonStyles } from '@/common/styles';
 import OlText from '@/components/OneLightText';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useScreenNavigation } from '@/utils/hooks';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type AddTypeItemProps = {
@@ -18,17 +17,17 @@ type AddTypeItemProps = {
 };
 
 function AddTypeItem({ typeInfo }: AddTypeItemProps) {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useScreenNavigation();
   const { bgColor = 'pink', title = '标题', desc = '描述内容', descImg = '' } = typeInfo;
   const goPublish = () => {
-    navigation.push('Test');
+    navigation.navigate('Test');
   };
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
       <Animated.View
         style={[styles.container, { backgroundColor: bgColor }]}
-        entering={FadeInRight}
-        exiting={FadeOutLeft}>
+        entering={FadeIn}
+        exiting={FadeOut}>
         <FastImage source={{ uri: descImg }} style={styles.descImg} />
         <View style={styles.mainInfo}>
           <OlText style={styles.title} numberOfLines={1}>

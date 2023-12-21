@@ -5,9 +5,8 @@ import FastImage, { FastImageProps } from 'react-native-fast-image';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useEffect } from 'react';
 import RootView from '@/components/RootView';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import BlurBox from '@/components/BluerBox';
+import { useScreenNavigation } from '@/utils/hooks';
 
 const Types = [
   {
@@ -40,16 +39,10 @@ const Types = [
   },
 ];
 
-type NewsTypeChooseScreenProps = {
-  navigation: any;
-  // eslint-disable-next-line no-unused-vars
-  setModalVisible: (flag: boolean) => void;
-};
-
 const AnimatedFastImage = Animated.createAnimatedComponent<FastImageProps>(FastImage as any);
 
 function NewsTypeChooseScreen() {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useScreenNavigation();
   // 关闭按钮旋转动画
   const rotation = useSharedValue(0);
   const animatedStyle = useAnimatedStyle(() => {
@@ -71,7 +64,7 @@ function NewsTypeChooseScreen() {
     navigation.goBack();
   };
   return (
-    <View style={styles.page}>
+    <RootView>
       <BlurBox />
       <View style={styles.container}>
         <View style={styles.main}>
@@ -86,14 +79,11 @@ function NewsTypeChooseScreen() {
           />
         </TouchableWithoutFeedback>
       </View>
-    </View>
+    </RootView>
   );
 }
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-  },
   blur: {
     position: 'absolute',
     top: 0,

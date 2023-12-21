@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import BarItem from './components/BarItem';
 import PublishTool from './components/PublishTool';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import BlurBox from '@/components/BluerBox/index';
+import BlurBox from '@/components/BluerBox';
 
 function BottomTabBar(props: BottomTabBarProps) {
   const { state, navigation } = props;
