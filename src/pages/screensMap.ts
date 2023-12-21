@@ -5,8 +5,8 @@ import HomeScreen from './homeScreen';
 import MineScreen from './mineScreen';
 import MarketScreen from './marketScreen';
 import CircleScreen from './circleScreen';
+import PublishScreen from './publishScreen';
 import TestScreen from './testScreen';
-import TestScreen1 from './testScreen1';
 import AddNewsScreen from './newsTypeChooseScreen';
 
 const AppPaths: Route[] = [
@@ -30,15 +30,15 @@ const AppPaths: Route[] = [
     animation: 'fade',
   },
   {
-    path: 'Test',
-    component: TestScreen,
-    title: '测试1',
+    path: PATH.PUBLISH_SCREEN,
+    component: PublishScreen,
+    title: '发布',
     animation: 'slide_from_bottom',
   },
   {
-    path: 'Test2',
-    component: TestScreen1,
-    title: '测试2',
+    path: 'Test',
+    component: TestScreen,
+    title: '测试',
   },
 ];
 
