@@ -8,7 +8,7 @@ function FeedBackBar() {
     <View style={styles.container}>
       <View style={[styles.singleTag, styles.tagBg1]}>
         <View style={styles.tagContent}>
-          <OlText style={styles.tagTitle}>加入我们</OlText>
+          <OlText style={[styles.tagTitle, styles.titleColor1]}>加入我们</OlText>
           <OlText style={styles.tagDesc}>加入团队</OlText>
         </View>
         <FastImage style={styles.icon} source={require('@/common/static/joinus.png')} />
@@ -16,7 +16,7 @@ function FeedBackBar() {
       <View style={styles.spaceBox} />
       <View style={[styles.singleTag, styles.tagBg2]}>
         <View style={styles.tagContent}>
-          <OlText style={styles.tagTitle}>调查问卷</OlText>
+          <OlText style={[styles.tagTitle, styles.titleColor2]}>调查问卷</OlText>
           <OlText style={styles.tagDesc}>问答有礼</OlText>
         </View>
         <FastImage style={styles.icon} source={require('@/common/static/qa.png')} />
@@ -57,8 +57,15 @@ const styles = StyleSheet.create({
     marginBottom: commonStyles.pageBorderGap,
     letterSpacing: 1,
   },
+  titleColor1: {
+    color: '#4cdba2',
+  },
+  titleColor2: {
+    color: '#4420A2',
+  },
   tagDesc: {
-    color: commonStyles.grey_text,
+    fontWeight: '500',
+    color: commonStyles.grey_placeholder
   },
   icon: {
     width: 35,

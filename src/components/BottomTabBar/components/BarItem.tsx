@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    width: 28,
+    width: 25,
     aspectRatio: 1,
   },
 });
