@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     paddingTop: 10,
-    paddingBottom: 40,
+    paddingBottom: 50,
   },
 });
 

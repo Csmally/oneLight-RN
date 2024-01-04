@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     position: 'absolute',
-    bottom: 33,
+    bottom: 40,
     display: 'flex',
     alignItems: 'center',
     paddingHorizontal: commonStyles.pageBorderGap * 2,
