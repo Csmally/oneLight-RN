@@ -1,9 +1,9 @@
-import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
-import {TextField} from 'react-native-ui-lib';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { TextField } from 'react-native-ui-lib';
 import CodeSender from './CodeSender';
-import {StyleSheet} from 'react-native';
-import {commonStyles} from '@/common/styles';
-import {memo} from 'react';
+import { StyleSheet } from 'react-native';
+import { commonStyles } from '@/common/styles';
+import { memo } from 'react';
 
 type MsgInputProps = {
   msgCode: string;
@@ -12,11 +12,9 @@ type MsgInputProps = {
   mobile: string;
 };
 
-function MsgInput({msgCode, setMsgCode, mobile}: MsgInputProps) {
+function MsgInput({ msgCode, setMsgCode, mobile }: MsgInputProps) {
   return (
-    <Animated.View
-      entering={FadeIn.duration(300)}
-      exiting={FadeOut.duration(300)}>
+    <Animated.View entering={FadeIn.duration(300)} exiting={FadeOut.duration(300)}>
       <TextField
         value={msgCode}
         style={styles.textInput}
@@ -34,6 +32,7 @@ function MsgInput({msgCode, setMsgCode, mobile}: MsgInputProps) {
 const styles = StyleSheet.create({
   textInput: {
     fontSize: 18,
+    maxWidth: 150,
   },
   textContainer: {
     paddingBottom: 6,

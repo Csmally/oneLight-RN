@@ -4,6 +4,9 @@ type Route = {
   title: string;
   headerShown?: boolean;
   headerTransparent?: boolean;
+  headerStyle?: {
+    backgroundColor: string;
+  };
   presentation?:
     | 'card'
     | 'modal'

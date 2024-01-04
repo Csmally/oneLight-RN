@@ -10,7 +10,6 @@ import { PATH } from '@/common/consts';
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { commonStyles } from '@/common/styles';
-import { Platform } from 'react-native';
 
 // 顶级根路由栈
 const Stack = createNativeStackNavigator();
@@ -38,11 +37,6 @@ function App() {
                 color: commonStyles.black,
                 fontWeight: 'bold',
               },
-              headerStyle: {
-                backgroundColor:
-                  Platform.OS === 'android' ? commonStyles.pageBgColor : 'transparent',
-              },
-              headerTransparent: true,
               headerBlurEffect: 'light',
             }}>
             <Stack.Screen
@@ -57,9 +51,10 @@ function App() {
                 options={{
                   title: route.title,
                   presentation: route.presentation ?? 'card',
-                  headerShown: route.headerShown ?? true,
-                  headerTransparent: route.headerTransparent ?? true,
                   animation: route.animation ?? 'default',
+                  headerShown: route.headerShown ?? true,
+                  headerTransparent: route.headerTransparent ?? false,
+                  headerStyle: route.headerStyle ?? { backgroundColor: commonStyles.headerBgColor },
                 }}
                 key={route.path}
               />

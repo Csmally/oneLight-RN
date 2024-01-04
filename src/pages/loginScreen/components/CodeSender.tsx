@@ -11,8 +11,8 @@ type CodeSenderProps = {
 
 function CodeSender({ mobile }: CodeSenderProps) {
   const [status, setStatus] = useState(true);
-  const [second, setSecond] = useState(5);
-  const secondRef = useRef(5);
+  const [second, setSecond] = useState(60);
+  const secondRef = useRef(60);
   const timerRef = useRef<any>(null);
   const reGetCode = () => {
     if (!status) {
@@ -32,7 +32,7 @@ function CodeSender({ mobile }: CodeSenderProps) {
   const interval = (fn: () => void, time: number) => {
     if (secondRef.current === 0) {
       setStatus(true);
-      setSecond(5);
+      setSecond(60);
       clearTimeout(timerRef.current);
       return;
     }
@@ -55,7 +55,12 @@ function CodeSender({ mobile }: CodeSenderProps) {
   ) : (
     <TouchableWithoutFeedback onPress={reGetCode}>
       <View style={styles.container}>
-        <OlText style={[styles.strText, styles.disabledColor]}>重新获取({second}秒)</OlText>
+        <View style={styles.container}>
+          <OlText style={styles.disabledText}>重新获取</OlText>
+        </View>
+        <View style={styles.secondBox}>
+          <OlText style={styles.disabledText}>({second}秒)</OlText>
+        </View>
         <ActivityIndicator />
       </View>
     </TouchableWithoutFeedback>
@@ -71,8 +76,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginRight: 6,
   },
-  disabledColor: {
+  disabledText: {
+    fontSize: 18,
     color: commonStyles.grey_placeholder,
+  },
+  secondBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 70,
+  },
+  clearIcon: {
+    marginRight: 20,
   },
 });
 
