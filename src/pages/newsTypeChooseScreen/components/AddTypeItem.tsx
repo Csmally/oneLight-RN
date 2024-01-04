@@ -4,7 +4,6 @@ import OlText from '@/components/OneLightText';
 import { useScreenNavigation } from '@/utils/hooks';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type AddTypeItemProps = {
@@ -25,10 +24,7 @@ function AddTypeItem({ typeInfo }: AddTypeItemProps) {
   };
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
-      <Animated.View
-        style={[styles.container, { backgroundColor: bgColor }]}
-        entering={FadeIn}
-        exiting={FadeOut}>
+      <View style={[styles.container, { backgroundColor: bgColor }]}>
         <FastImage source={{ uri: descImg }} style={styles.descImg} />
         <View style={styles.mainInfo}>
           <OlText style={styles.title} numberOfLines={1}>
@@ -44,7 +40,7 @@ function AddTypeItem({ typeInfo }: AddTypeItemProps) {
           style={styles.rightIcon}
           color={commonStyles.grey_text}
         />
-      </Animated.View>
+      </View>
     </TouchableWithoutFeedback>
   );
 }

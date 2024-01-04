@@ -31,8 +31,8 @@ function App() {
             screenOptions={{
               statusBarTranslucent: true,
               statusBarColor: 'transparent',
-              headerTitleAlign: 'center',
               statusBarStyle: 'dark',
+              headerTitleAlign: 'center',
               headerShadowVisible: false,
               headerTitleStyle: {
                 color: commonStyles.black,
@@ -40,7 +40,7 @@ function App() {
               },
               headerStyle: {
                 backgroundColor:
-                  Platform.OS === 'android' ? 'rgba(246, 248, 249, 0.97)' : 'transparent',
+                  Platform.OS === 'android' ? commonStyles.pageBgColor : 'transparent',
               },
               headerTransparent: true,
               headerBlurEffect: 'light',

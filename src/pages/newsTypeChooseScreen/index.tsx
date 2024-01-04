@@ -2,7 +2,13 @@ import { commonStyles } from '@/common/styles';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import AddTypeItem from './components/AddTypeItem';
 import FastImage, { FastImageProps } from 'react-native-fast-image';
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import Animated, {
+  BounceInDown,
+  BounceOutDown,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from 'react-native-reanimated';
 import { useEffect } from 'react';
 import RootView from '@/components/RootView';
 import BlurBox from '@/components/BluerBox';
@@ -67,11 +73,14 @@ function NewsTypeChooseScreen() {
     <RootView>
       <BlurBox />
       <View style={styles.container}>
-        <View style={styles.main}>
+        <Animated.View
+          style={styles.main}
+          entering={BounceInDown.duration(800)}
+          exiting={BounceOutDown.duration(800)}>
           {Types.map(item => (
             <AddTypeItem key={item.id} typeInfo={item} />
           ))}
-        </View>
+        </Animated.View>
         <TouchableWithoutFeedback onPress={cancelChoose}>
           <AnimatedFastImage
             source={require('./static/publish.png')}

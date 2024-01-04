@@ -1,3 +1,4 @@
+import { useHeaderHeight } from '@react-navigation/elements';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -9,4 +10,12 @@ function useScreenNavigation() {
   return navigation;
 }
 
-export { useScreenNavigation };
+/**
+ * 获取屏幕顶部header高度
+ */
+function useScreenHeaderHeight() {
+  const headerHeight = useHeaderHeight();
+  return headerHeight;
+}
+
+export { useScreenNavigation, useScreenHeaderHeight };
