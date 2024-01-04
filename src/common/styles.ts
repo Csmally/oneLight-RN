@@ -18,7 +18,10 @@ const commonStyles = {
   grey_placeholder: '#a8a8a8',
   topBarFontSize: 18,
   pageBorderGap: 10,
-  headerBgColor: Platform.OS === 'android' ? '#F6F8F9' : 'transparent',
+  headerBgColor: '#F6F8F9',
+  transparentHeaderBg: {
+    backgroundColor: Platform.OS === 'ios' ? 'transparent' : '#F6F8F9',
+  },
 };
 
 const defaultShadowParam: CommonShadowParams = {

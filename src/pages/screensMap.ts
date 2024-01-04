@@ -22,7 +22,6 @@ const AppPaths: Route[] = [
     component: LoginScreen,
     title: '登录',
     presentation: 'modal',
-    headerStyle: { backgroundColor: commonStyles.pageBgColor },
   },
   {
     path: PATH.NEWS_TYPE_CHOOSE_SCREEN,
@@ -37,6 +36,7 @@ const AppPaths: Route[] = [
     title: '发布',
     animation: 'slide_from_bottom',
     headerTransparent: true,
+    headerStyle: commonStyles.transparentHeaderBg,
   },
   {
     path: 'Test',
