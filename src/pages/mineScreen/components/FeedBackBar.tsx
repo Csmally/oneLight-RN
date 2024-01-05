@@ -13,7 +13,6 @@ function FeedBackBar() {
         </View>
         <FastImage style={styles.icon} source={require('@/common/static/joinus.png')} />
       </View>
-      <View style={styles.spaceBox} />
       <View style={[styles.singleTag, styles.tagBg2]}>
         <View style={styles.tagContent}>
           <OlText style={[styles.tagTitle, styles.titleColor2]}>调查问卷</OlText>
@@ -31,9 +30,7 @@ const styles = StyleSheet.create({
     marginHorizontal: commonStyles.pageBorderGap,
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  spaceBox: {
-    flex: 0.1,
+    gap: 20
   },
   singleTag: {
     flex: 1,
