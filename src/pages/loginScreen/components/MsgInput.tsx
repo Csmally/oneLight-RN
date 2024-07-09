@@ -1,9 +1,9 @@
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { TextField } from 'react-native-ui-lib';
+import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
+// import { TextField } from 'react-native-ui-lib';
 import CodeSender from './CodeSender';
-import { StyleSheet } from 'react-native';
-import { commonStyles } from '@/common/styles';
-import { memo } from 'react';
+import {StyleSheet} from 'react-native';
+import {commonStyles} from '@/common/styles';
+import {memo} from 'react';
 
 type MsgInputProps = {
   msgCode: string;
@@ -12,10 +12,12 @@ type MsgInputProps = {
   mobile: string;
 };
 
-function MsgInput({ msgCode, setMsgCode, mobile }: MsgInputProps) {
+function MsgInput({msgCode, setMsgCode, mobile}: MsgInputProps) {
   return (
-    <Animated.View entering={FadeIn.duration(300)} exiting={FadeOut.duration(300)}>
-      <TextField
+    <Animated.View
+      entering={FadeIn.duration(300)}
+      exiting={FadeOut.duration(300)}>
+      {/* <TextField
         value={msgCode}
         style={styles.textInput}
         containerStyle={[styles.textContainer, styles.viewMargin]}
@@ -24,7 +26,7 @@ function MsgInput({ msgCode, setMsgCode, mobile }: MsgInputProps) {
         floatingPlaceholder
         onChangeText={setMsgCode}
         trailingAccessory={<CodeSender mobile={mobile} />}
-      />
+      /> */}
     </Animated.View>
   );
 }

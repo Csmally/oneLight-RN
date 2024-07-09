@@ -1,8 +1,13 @@
-import { PATH } from '@/common/consts';
-import { commonStyles } from '@/common/styles';
-import { useScreenNavigation } from '@/utils/hooks';
-import { StyleSheet, TouchableWithoutFeedback, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {PATH} from '@/common/consts';
+import {commonStyles} from '@/common/styles';
+import {useScreenNavigation} from '@/utils/hooks';
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+  Text,
+  Image,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type AddTypeItemProps = {
@@ -15,16 +20,21 @@ type AddTypeItemProps = {
   };
 };
 
-function AddTypeItem({ typeInfo }: AddTypeItemProps) {
+function AddTypeItem({typeInfo}: AddTypeItemProps) {
   const navigation = useScreenNavigation();
-  const { bgColor = 'pink', title = '标题', desc = '描述内容', descImg = '' } = typeInfo;
+  const {
+    bgColor = 'pink',
+    title = '标题',
+    desc = '描述内容',
+    descImg = '',
+  } = typeInfo;
   const goPublish = () => {
     navigation.navigate(PATH.PUBLISH_SCREEN);
   };
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
-      <View style={[styles.container, { backgroundColor: bgColor }]}>
-        <FastImage source={{ uri: descImg }} style={styles.descImg} />
+      <View style={[styles.container, {backgroundColor: bgColor}]}>
+        <Image source={{uri: descImg}} style={styles.descImg} />
         <View style={styles.mainInfo}>
           <Text style={styles.title} numberOfLines={1}>
             {title}
@@ -34,7 +44,7 @@ function AddTypeItem({ typeInfo }: AddTypeItemProps) {
           </Text>
         </View>
         <Icon
-          name='chevron-forward-outline'
+          name="chevron-forward-outline"
           size={20}
           style={styles.rightIcon}
           color={commonStyles.grey_text}

@@ -1,6 +1,5 @@
-import { memo, useEffect } from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import FastImage, { FastImageProps } from 'react-native-fast-image';
+import {memo, useEffect} from 'react';
+import {StyleSheet, TouchableWithoutFeedback, View, Image} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -15,22 +14,20 @@ type BarItemProps = {
   navigation: any;
 };
 
-const AnimatedFastImage = Animated.createAnimatedComponent<FastImageProps>(FastImage as any);
-
-function BarItem({ currentIndex, selfIndex, route, navigation }: BarItemProps) {
+function BarItem({currentIndex, selfIndex, route, navigation}: BarItemProps) {
   const isFocus = currentIndex === selfIndex;
   const scale = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ scale: scale.value }],
+      transform: [{scale: scale.value}],
     };
   });
   // 当isFocus改变时触发动画
   useEffect(() => {
     scale.value = withSequence(
-      withTiming(0.8, { duration: 100 }),
-      withTiming(1.2, { duration: 100 }),
-      withTiming(1, { duration: 100 }),
+      withTiming(0.8, {duration: 100}),
+      withTiming(1.2, {duration: 100}),
+      withTiming(1, {duration: 100}),
     );
   }, [isFocus, scale]);
 
@@ -50,12 +47,12 @@ function BarItem({ currentIndex, selfIndex, route, navigation }: BarItemProps) {
     <TouchableWithoutFeedback onPress={selectTab}>
       <View style={styles.container}>
         {isFocus ? (
-          <AnimatedFastImage
+          <Animated.Image
             source={getImgSource(selfIndex, isFocus)}
             style={[styles.img, animatedStyle]}
           />
         ) : (
-          <FastImage source={getImgSource(selfIndex, isFocus)} style={styles.img} />
+          <Image source={getImgSource(selfIndex, isFocus)} style={styles.img} />
         )}
       </View>
     </TouchableWithoutFeedback>
@@ -77,19 +74,29 @@ const getImgSource = (selfIndex: number, isFocus: boolean) => {
   let source;
   switch (selfIndex) {
     case 0:
-      source = isFocus ? require('../static/homeSelect.png') : require('../static/home.png');
+      source = isFocus
+        ? require('../static/homeSelect.png')
+        : require('../static/home.png');
       break;
     case 1:
-      source = isFocus ? require('../static/marketSelect.png') : require('../static/market.png');
+      source = isFocus
+        ? require('../static/marketSelect.png')
+        : require('../static/market.png');
       break;
     case 2:
-      source = isFocus ? require('../static/circleSelect.png') : require('../static/circle.png');
+      source = isFocus
+        ? require('../static/circleSelect.png')
+        : require('../static/circle.png');
       break;
     case 3:
-      source = isFocus ? require('../static/mineSelect.png') : require('../static/mine.png');
+      source = isFocus
+        ? require('../static/mineSelect.png')
+        : require('../static/mine.png');
       break;
     default:
-      source = isFocus ? require('../static/homeSelect.png') : require('../static/home.png');
+      source = isFocus
+        ? require('../static/homeSelect.png')
+        : require('../static/home.png');
       break;
   }
   return source;
@@ -97,6 +104,7 @@ const getImgSource = (selfIndex: number, isFocus: boolean) => {
 
 export default memo(BarItem, (prevProps, nextProps) => {
   return (
-    prevProps.currentIndex !== nextProps.selfIndex && nextProps.currentIndex !== nextProps.selfIndex
+    prevProps.currentIndex !== nextProps.selfIndex &&
+    nextProps.currentIndex !== nextProps.selfIndex
   );
 });

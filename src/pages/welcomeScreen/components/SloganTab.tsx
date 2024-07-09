@@ -1,8 +1,8 @@
-import { commonStyles, getCommonShadowStyle } from '@/common/styles';
-import { memo } from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
-import { PATH } from '@/common/consts';
-import { useScreenNavigation } from '@/utils/hooks';
+import {commonStyles, getCommonShadowStyle} from '@/common/styles';
+import {memo} from 'react';
+import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
+import {PATH} from '@/common/consts';
+import {useScreenNavigation} from '@/utils/hooks';
 
 function SloganTab() {
   const navigation = useScreenNavigation();
@@ -15,15 +15,23 @@ function SloganTab() {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={[styles.fontStyle, styles.title]}>Welcome Use OneLight</Text>
-        <Text style={[styles.fontStyle, styles.title]}>这是一个专属年轻人的App</Text>
+        <Text style={[styles.fontStyle, styles.title]}>
+          Welcome Use OneLight
+        </Text>
+        <Text style={[styles.fontStyle, styles.title]}>
+          这是一个专属年轻人的App
+        </Text>
       </View>
       <View>
         <Text style={[styles.fontStyle, styles.content]}>在这里，你可以</Text>
-        <Text style={[styles.fontStyle, styles.content]}>分享美食，社交，数码，时尚</Text>
+        <Text style={[styles.fontStyle, styles.content]}>
+          分享美食，社交，数码，时尚
+        </Text>
         <Text style={[styles.fontStyle, styles.content]}>
           或者
-          <Text style={[styles.fontStyle, styles.content, styles.joinUs]} onPress={joinUs}>
+          <Text
+            style={[styles.fontStyle, styles.content, styles.joinUs]}
+            onPress={joinUs}>
             加入我们
           </Text>
           的团队

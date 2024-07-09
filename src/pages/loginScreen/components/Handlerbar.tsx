@@ -1,11 +1,17 @@
-import { PATH } from '@/common/consts';
-import { commonStyles, getCommonShadowStyle } from '@/common/styles';
-import { useScreenNavigation } from '@/utils/hooks';
-import { login } from '@/utils/login';
-import { memo } from 'react';
-import { StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import Animated, { Layout } from 'react-native-reanimated';
+import {PATH} from '@/common/consts';
+import {commonStyles, getCommonShadowStyle} from '@/common/styles';
+import {useScreenNavigation} from '@/utils/hooks';
+import {login} from '@/utils/login';
+import {memo} from 'react';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+  Text,
+  Image,
+} from 'react-native';
+import Animated, {Layout} from 'react-native-reanimated';
 
 type HandlerbarProps = {
   isShowPassCode: boolean;
@@ -13,7 +19,7 @@ type HandlerbarProps = {
   msgCode: string;
 };
 
-function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
+function Handlerbar({isShowPassCode, mobile, msgCode}: HandlerbarProps) {
   const navigation = useScreenNavigation();
   const loginHandle = async () => {
     if (!isShowPassCode || !msgCode) {
@@ -22,17 +28,23 @@ function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
     }
     const isLogin = await login(mobile, msgCode);
     if (!isLogin) return;
-    navigation.reset({ index: 0, routes: [{ name: PATH.MAIN_SCREEN }] });
+    navigation.reset({index: 0, routes: [{name: PATH.MAIN_SCREEN}]});
   };
   return (
     <Animated.View layout={Layout.duration(300)} style={styles.btnContainer}>
       <Text style={[styles.or, styles.viewMargin]}>或</Text>
       <View style={[styles.loginMethods, styles.viewMargin]}>
         <TouchableWithoutFeedback onPress={loginHandle}>
-          <FastImage style={styles.loginMethod} source={require('@/static/icons/wechat.png')} />
+          <Image
+            style={styles.loginMethod}
+            source={require('@/static/icons/wechat.png')}
+          />
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={loginHandle}>
-          <FastImage style={styles.loginMethod} source={require('@/static/icons/alipay.png')} />
+          <Image
+            style={styles.loginMethod}
+            source={require('@/static/icons/alipay.png')}
+          />
         </TouchableWithoutFeedback>
       </View>
       <TouchableOpacity onPress={loginHandle} style={styles.loginBtn}>

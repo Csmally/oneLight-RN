@@ -1,12 +1,15 @@
-import { commonStyles, getCommonShadowStyle } from '@/common/styles';
-import { View, StyleSheet, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import Animated, { measure, runOnUI, useAnimatedRef } from 'react-native-reanimated';
-import { memo, useContext } from 'react';
-import { MineScreenContext } from '../utils/context';
+import {commonStyles, getCommonShadowStyle} from '@/common/styles';
+import {View, StyleSheet, Text, Image} from 'react-native';
+import Animated, {
+  measure,
+  runOnUI,
+  useAnimatedRef,
+} from 'react-native-reanimated';
+import {memo, useContext} from 'react';
+import {MineScreenContext} from '../utils/context';
 
 function UserInfoBar() {
-  const { userInfoBarHeight } = useContext(MineScreenContext);
+  const {userInfoBarHeight} = useContext(MineScreenContext);
   // 获取UserInfoBar布局信息
   const animatedUserInfoBarRef = useAnimatedRef();
   const getUserInfoBarLayout = () => {
@@ -37,16 +40,18 @@ function UserInfoBar() {
       </View>
       <View style={styles.avatarContainer}>
         <View style={[styles.avatarBox, styles.avatar]}>
-          <FastImage
+          <Image
             style={styles.avatar}
-            source={{ uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg' }}
-            resizeMode='cover'
+            source={{
+              uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',
+            }}
+            resizeMode="cover"
           />
         </View>
-        <FastImage
+        <Image
           style={styles.genderIcon}
           source={require('@/common/static/male.png')}
-          resizeMode='cover'
+          resizeMode="cover"
         />
       </View>
     </Animated.View>

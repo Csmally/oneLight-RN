@@ -16,12 +16,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {HomeScreenContext} from '../utils/context';
-import FastImage, {FastImageProps} from 'react-native-fast-image';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-
-const AnimatedFastImage = Animated.createAnimatedComponent<FastImageProps>(
-  FastImage as any,
-);
 
 function InfoBar() {
   const {sharedScrollY} = useContext(HomeScreenContext);
@@ -109,7 +104,7 @@ function InfoBar() {
             onPress={() => {
               console.log('9898我是个人信息');
             }}>
-            <AnimatedFastImage
+            <Animated.Image
               style={avatarAnimatedStyle}
               source={{
                 uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',

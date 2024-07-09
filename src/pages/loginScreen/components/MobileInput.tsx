@@ -1,7 +1,7 @@
-import { commonStyles } from '@/common/styles';
-import { memo } from 'react';
-import { StyleSheet } from 'react-native';
-import { TextField } from 'react-native-ui-lib';
+import {commonStyles} from '@/common/styles';
+import {memo} from 'react';
+import {StyleSheet} from 'react-native';
+// import { TextField } from 'react-native-ui-lib';
 
 type MobileInputProps = {
   mobile: string;
@@ -33,19 +33,20 @@ function MobileInput({
     return reg.test(val);
   };
   return (
-    <TextField
-      value={mobile}
-      style={styles.textInput}
-      containerStyle={[styles.textContainer, styles.viewMargin]}
-      floatingPlaceholderStyle={styles.placeholder}
-      maxLength={11}
-      keyboardType='phone-pad'
-      placeholder={'输入手机号（新号码自动注册）'}
-      floatingPlaceholder
-      validate={validateMobileNum}
-      validateOnChange
-      onChangeText={setMobile}
-    />
+    // <TextField
+    //   value={mobile}
+    //   style={styles.textInput}
+    //   containerStyle={[styles.textContainer, styles.viewMargin]}
+    //   floatingPlaceholderStyle={styles.placeholder}
+    //   maxLength={11}
+    //   keyboardType='phone-pad'
+    //   placeholder={'输入手机号（新号码自动注册）'}
+    //   floatingPlaceholder
+    //   validate={validateMobileNum}
+    //   validateOnChange
+    //   onChangeText={setMobile}
+    // />
+    null
   );
 }
 

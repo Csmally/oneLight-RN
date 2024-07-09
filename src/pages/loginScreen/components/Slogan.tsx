@@ -1,11 +1,13 @@
-import { memo } from 'react';
-import { StyleSheet, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {memo} from 'react';
+import {StyleSheet, Text, Image} from 'react-native';
 
 function Slogan() {
   return (
     <>
-      <FastImage style={[styles.viewMargin, styles.logo]} source={require('@/static/icons/appLogo.png')} />
+      <Image
+        style={[styles.viewMargin, styles.logo]}
+        source={require('@/static/icons/appLogo.png')}
+      />
       <Text style={[styles.title, styles.viewMargin]}>
         嗨<Text style={styles.appName}>, oneLight</Text>
       </Text>
@@ -14,6 +16,10 @@ function Slogan() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: 100,
+    height: 60,
+  },
   viewMargin: {
     marginBottom: 30,
   },

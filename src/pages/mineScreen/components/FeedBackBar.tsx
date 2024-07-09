@@ -1,6 +1,5 @@
-import { commonStyles } from '@/common/styles';
-import { StyleSheet, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {commonStyles} from '@/common/styles';
+import {StyleSheet, View, Text, Image} from 'react-native';
 
 function FeedBackBar() {
   return (
@@ -10,14 +9,17 @@ function FeedBackBar() {
           <Text style={[styles.tagTitle, styles.titleColor1]}>加入我们</Text>
           <Text style={styles.tagDesc}>加入团队</Text>
         </View>
-        <FastImage style={styles.icon} source={require('@/common/static/joinus.png')} />
+        <Image
+          style={styles.icon}
+          source={require('@/common/static/joinus.png')}
+        />
       </View>
       <View style={[styles.singleTag, styles.tagBg2]}>
         <View style={styles.tagContent}>
           <Text style={[styles.tagTitle, styles.titleColor2]}>调查问卷</Text>
           <Text style={styles.tagDesc}>问答有礼</Text>
         </View>
-        <FastImage style={styles.icon} source={require('@/common/static/qa.png')} />
+        <Image style={styles.icon} source={require('@/common/static/qa.png')} />
       </View>
     </View>
   );
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     marginHorizontal: commonStyles.pageBorderGap,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 20
+    gap: 20,
   },
   singleTag: {
     flex: 1,
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
   },
   tagDesc: {
     fontWeight: '500',
-    color: commonStyles.grey_placeholder
+    color: commonStyles.grey_placeholder,
   },
   icon: {
     width: 35,

@@ -1,6 +1,5 @@
-import { commonStyles } from '@/common/styles';
-import { StyleSheet, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {commonStyles} from '@/common/styles';
+import {StyleSheet, View, Text, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BlurBox from '@/components/BluerBox';
 
@@ -9,44 +8,52 @@ type MediasProps = {
 };
 
 // 一张图频或视频
-function SingleMedia({ medias }: MediasProps) {
+function SingleMedia({medias}: MediasProps) {
   const media = medias[0];
   return (
     <View style={styles.singleContainer}>
       <BlurBox />
-      <FastImage
-        source={{ uri: media }}
+      <Image
+        source={{uri: media}}
         style={[styles.img, styles.singleImg]}
-        resizeMode='cover'
+        resizeMode="cover"
       />
     </View>
   );
 }
 
 // 两张图频或视频
-function DoubleMedia({ medias }: MediasProps) {
+function DoubleMedia({medias}: MediasProps) {
   return medias.map((item, index) => (
     <View style={styles.doubleContainer} key={index}>
       <BlurBox />
-      <FastImage source={{ uri: item }} style={[styles.img, styles.doubleImg]} resizeMode='cover' />
+      <Image
+        source={{uri: item}}
+        style={[styles.img, styles.doubleImg]}
+        resizeMode="cover"
+      />
     </View>
   ));
 }
 
 // 多张图频或视频
-function ThreeMedia({ medias }: MediasProps) {
+function ThreeMedia({medias}: MediasProps) {
   return medias.map(
     (item, index) =>
       index < 3 && (
         <View style={styles.threeContainer} key={index}>
-          <FastImage
-            source={{ uri: item }}
+          <Image
+            source={{uri: item}}
             style={[styles.img, styles.threebleImg]}
-            resizeMode='cover'
+            resizeMode="cover"
           />
           {index === 2 && (
             <View style={styles.imgCount}>
-              <Icon name='images-outline' size={15} color={commonStyles.white} />
+              <Icon
+                name="images-outline"
+                size={15}
+                color={commonStyles.white}
+              />
               <Text style={styles.imgCountText}>{medias.length}</Text>
             </View>
           )}
@@ -56,7 +63,7 @@ function ThreeMedia({ medias }: MediasProps) {
 }
 
 // 媒体展示容器（图片&视频）
-function Medias({ medias }: MediasProps) {
+function Medias({medias}: MediasProps) {
   return (
     <View style={[styles.container, medias.length > 1 && styles.moreContainer]}>
       {medias.length === 1 && <SingleMedia medias={medias} />}
