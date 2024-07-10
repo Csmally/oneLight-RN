@@ -9,9 +9,11 @@ const ClientTypes = {
   android: 2,
   web: 3,
 };
-const ClientType: number = ClientTypes[Platform.OS as 'ios' | 'android' | 'web'];
+const ClientType: number =
+  ClientTypes[Platform.OS as 'ios' | 'android' | 'web'];
 
-const baseURL = Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
+const baseURL =
+  Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
 // 创建 Axios 实例
 const https = axios.create({
   baseURL: baseURL, // 设置基础URL，用于所有请求

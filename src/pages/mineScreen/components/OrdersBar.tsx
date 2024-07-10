@@ -1,5 +1,5 @@
-import {commonStyles, getCommonShadowStyle} from '@/common/styles';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import { commonStyles, getCommonShadowStyle } from '@/common/styles';
+import { View, StyleSheet, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tabs = [

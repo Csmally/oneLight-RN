@@ -1,5 +1,5 @@
-import {commonStyles} from '@/common/styles';
-import {useContext} from 'react';
+import { commonStyles } from '@/common/styles';
+import { useContext } from 'react';
 import {
   View,
   StyleSheet,
@@ -15,11 +15,11 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {HomeScreenContext} from '../utils/context';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import { HomeScreenContext } from '../utils/context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 function InfoBar() {
-  const {sharedScrollY} = useContext(HomeScreenContext);
+  const { sharedScrollY } = useContext(HomeScreenContext);
   // 热区宽度
   const hotAreaWidth = useSharedValue(0);
   const setHotAreaWidth = (e: LayoutChangeEvent) => {
@@ -58,7 +58,7 @@ function InfoBar() {
       extrapolateLeft: Extrapolation.CLAMP,
       extrapolateRight: Extrapolation.CLAMP,
     });
-    return {opacity};
+    return { opacity };
   });
   // 热区动画
   const hotAreaAnimatedStyle = useAnimatedStyle(() => {
@@ -76,9 +76,9 @@ function InfoBar() {
       width,
     };
   });
-  const {top} = useSafeAreaInsets();
+  const { top } = useSafeAreaInsets();
   return (
-    <View style={{paddingTop: top, zIndex: 2}}>
+    <View style={{ paddingTop: top, zIndex: 2 }}>
       <Animated.View style={styles.container} onLayout={setHotAreaWidth}>
         <View style={styles.settings}>
           <Icon

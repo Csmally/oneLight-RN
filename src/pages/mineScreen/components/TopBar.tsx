@@ -1,5 +1,5 @@
-import {commonStyles} from '@/common/styles';
-import {useContext} from 'react';
+import { commonStyles } from '@/common/styles';
+import { useContext } from 'react';
 import {
   Text,
   Dimensions,
@@ -7,17 +7,17 @@ import {
   TouchableWithoutFeedback,
   Image,
 } from 'react-native';
-import {MineScreenContext} from '../utils/context';
+import { MineScreenContext } from '../utils/context';
 import Animated, {
   useAnimatedReaction,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 function TopBar() {
-  const {top: statusBarHeight} = useSafeAreaInsets();
-  const {sharedScrollY, userInfoBarHeight} = useContext(MineScreenContext);
+  const { top: statusBarHeight } = useSafeAreaInsets();
+  const { sharedScrollY, userInfoBarHeight } = useContext(MineScreenContext);
   const sharedWidth = useSharedValue(20);
   const sharedScale = useSharedValue(0);
   const iconWidth = 20;
@@ -55,10 +55,10 @@ function TopBar() {
     console.log('9898我是信息按钮');
   };
   return (
-    <Animated.View style={[styles.container, {paddingTop: statusBarHeight}]}>
+    <Animated.View style={[styles.container, { paddingTop: statusBarHeight }]}>
       <TouchableWithoutFeedback onPress={bb}>
         <Image
-          style={[{width: iconWidth}, styles.icon]}
+          style={[{ width: iconWidth }, styles.icon]}
           source={require('@/common/static/message.png')}
           resizeMode="cover"
         />
@@ -66,7 +66,7 @@ function TopBar() {
       <Animated.View
         style={[
           styles.spaceBox,
-          {width: sharedWidth, transform: [{scale: sharedScale}]},
+          { width: sharedWidth, transform: [{ scale: sharedScale }] },
         ]}>
         <Image
           style={styles.avatarStyle}
@@ -81,7 +81,7 @@ function TopBar() {
       </Animated.View>
       <TouchableWithoutFeedback onPress={aa}>
         <Image
-          style={[{width: iconWidth}, styles.icon]}
+          style={[{ width: iconWidth }, styles.icon]}
           source={require('@/common/static/setting.png')}
           resizeMode="cover"
         />

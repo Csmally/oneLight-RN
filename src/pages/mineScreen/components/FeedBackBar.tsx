@@ -1,5 +1,5 @@
-import {commonStyles} from '@/common/styles';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import { commonStyles } from '@/common/styles';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 function FeedBackBar() {
   return (

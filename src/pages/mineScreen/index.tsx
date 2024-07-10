@@ -3,7 +3,10 @@ import { View } from 'react-native';
 import BusinessInfoBar from './components/BusinessInfoBar';
 import OrdersBar from './components/OrdersBar';
 import ToolsBar from './components/ToolsBar';
-import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import Animated, {
+  useAnimatedScrollHandler,
+  useSharedValue,
+} from 'react-native-reanimated';
 import AnimatedHeader from './components/AnimatedHeader';
 import { MineScreenContext } from './utils/context';
 import UserInfoBar from './components/UserInfoBar';
@@ -33,7 +36,7 @@ function MineScreen() {
     <MineScreenContext.Provider value={providerValue}>
       <RootView>
         <Animated.ScrollView
-          contentInsetAdjustmentBehavior='never'
+          contentInsetAdjustmentBehavior="never"
           showsVerticalScrollIndicator={false}
           bounces={false}
           contentContainerStyle={{

@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {useState} from 'react';
-import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
+import { StyleSheet } from 'react-native';
+import { useState } from 'react';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import MobileInput from './components/MobileInput';
 import MsgInput from './components/MsgInput';
 import Slogan from './components/Slogan';

@@ -1,8 +1,13 @@
-import {PATH} from '@/common/consts';
+import { PATH } from '@/common/consts';
 import BlurBox from '@/components/BluerBox';
-import {useScreenNavigation} from '@/utils/hooks';
-import {memo} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View, Image} from 'react-native';
+import { useScreenNavigation } from '@/utils/hooks';
+import { memo } from 'react';
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+  Image,
+} from 'react-native';
 
 function PublishTool() {
   const navigation = useScreenNavigation();

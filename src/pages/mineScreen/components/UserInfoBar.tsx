@@ -1,15 +1,15 @@
-import {commonStyles, getCommonShadowStyle} from '@/common/styles';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import { commonStyles, getCommonShadowStyle } from '@/common/styles';
+import { View, StyleSheet, Text, Image } from 'react-native';
 import Animated, {
   measure,
   runOnUI,
   useAnimatedRef,
 } from 'react-native-reanimated';
-import {memo, useContext} from 'react';
-import {MineScreenContext} from '../utils/context';
+import { memo, useContext } from 'react';
+import { MineScreenContext } from '../utils/context';
 
 function UserInfoBar() {
-  const {userInfoBarHeight} = useContext(MineScreenContext);
+  const { userInfoBarHeight } = useContext(MineScreenContext);
   // 获取UserInfoBar布局信息
   const animatedUserInfoBarRef = useAnimatedRef();
   const getUserInfoBarLayout = () => {

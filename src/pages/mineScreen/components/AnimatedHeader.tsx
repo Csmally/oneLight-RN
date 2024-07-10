@@ -27,10 +27,15 @@ function AnimatedHeader() {
   // 映射头部组件高斯模糊透明度动画样式
   const blurAnimatedStyle = useAnimatedStyle(() => {
     // topbar背景透明度动画
-    const opacity = interpolate(sharedScrollY.value, [0, animatedHeaderHeight.value], [0, 1], {
-      extrapolateLeft: Extrapolation.CLAMP,
-      extrapolateRight: Extrapolation.CLAMP,
-    });
+    const opacity = interpolate(
+      sharedScrollY.value,
+      [0, animatedHeaderHeight.value],
+      [0, 1],
+      {
+        extrapolateLeft: Extrapolation.CLAMP,
+        extrapolateRight: Extrapolation.CLAMP,
+      },
+    );
     return { opacity };
   });
   return (

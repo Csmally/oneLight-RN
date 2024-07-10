@@ -1,5 +1,5 @@
-import {commonStyles} from '@/common/styles';
-import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
+import { commonStyles } from '@/common/styles';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import AddTypeItem from './components/AddTypeItem';
 import Animated, {
   BounceInDown,
@@ -8,10 +8,10 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import RootView from '@/components/RootView';
 import BlurBox from '@/components/BluerBox';
-import {useScreenNavigation} from '@/utils/hooks';
+import { useScreenNavigation } from '@/utils/hooks';
 
 const Types = [
   {
@@ -54,7 +54,7 @@ function NewsTypeChooseScreen() {
   const rotation = useSharedValue(0);
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{rotate: `${rotation.value}deg`}],
+      transform: [{ rotate: `${rotation.value}deg` }],
     };
   });
   const startAnimation = () => {

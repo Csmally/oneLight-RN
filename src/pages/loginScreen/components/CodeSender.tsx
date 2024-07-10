@@ -1,6 +1,12 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { StyleSheet, ActivityIndicator, TouchableWithoutFeedback, View, Text } from 'react-native';
+import {
+  StyleSheet,
+  ActivityIndicator,
+  TouchableWithoutFeedback,
+  View,
+  Text,
+} from 'react-native';
 import { commonStyles } from '@/common/styles';
 import { apiGetMsgCode } from '@/services/login';
 
@@ -48,7 +54,7 @@ function CodeSender({ mobile }: CodeSenderProps) {
     <TouchableWithoutFeedback onPress={sendCode}>
       <View style={styles.container}>
         <Text style={styles.strText}>获取验证码</Text>
-        <Icon name='paper-plane' size={18} />
+        <Icon name="paper-plane" size={18} />
       </View>
     </TouchableWithoutFeedback>
   ) : (

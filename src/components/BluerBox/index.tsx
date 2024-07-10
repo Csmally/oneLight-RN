@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { StyleSheet } from 'react-native';
 
 function BlurBox() {
-  return <BlurView style={styles.blur} blurType='xlight' blurAmount={50} />;
+  return <BlurView style={styles.blur} blurType="xlight" blurAmount={50} />;
 }
 
 const styles = StyleSheet.create({

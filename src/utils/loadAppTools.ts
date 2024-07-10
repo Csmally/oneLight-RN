@@ -7,7 +7,7 @@ export const setGlobalTools = () => {
   // 全局Toast工具
   Toast = {
     show: message => {
-      console.log('提示框',message)
+      console.log('提示框', message);
     },
   };
 };

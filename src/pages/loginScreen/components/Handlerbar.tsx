@@ -1,8 +1,8 @@
-import {PATH} from '@/common/consts';
-import {commonStyles, getCommonShadowStyle} from '@/common/styles';
-import {useScreenNavigation} from '@/utils/hooks';
-import {login} from '@/utils/login';
-import {memo} from 'react';
+import { PATH } from '@/common/consts';
+import { commonStyles, getCommonShadowStyle } from '@/common/styles';
+import { useScreenNavigation } from '@/utils/hooks';
+import { login } from '@/utils/login';
+import { memo } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -11,7 +11,7 @@ import {
   Text,
   Image,
 } from 'react-native';
-import Animated, {Layout} from 'react-native-reanimated';
+import Animated, { Layout } from 'react-native-reanimated';
 
 type HandlerbarProps = {
   isShowPassCode: boolean;
@@ -19,7 +19,7 @@ type HandlerbarProps = {
   msgCode: string;
 };
 
-function Handlerbar({isShowPassCode, mobile, msgCode}: HandlerbarProps) {
+function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
   const navigation = useScreenNavigation();
   const loginHandle = async () => {
     if (!isShowPassCode || !msgCode) {
@@ -28,7 +28,7 @@ function Handlerbar({isShowPassCode, mobile, msgCode}: HandlerbarProps) {
     }
     const isLogin = await login(mobile, msgCode);
     if (!isLogin) return;
-    navigation.reset({index: 0, routes: [{name: PATH.MAIN_SCREEN}]});
+    navigation.reset({ index: 0, routes: [{ name: PATH.MAIN_SCREEN }] });
   };
   return (
     <Animated.View layout={Layout.duration(300)} style={styles.btnContainer}>

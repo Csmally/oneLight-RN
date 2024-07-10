@@ -1,7 +1,11 @@
 import CategoryBar from './CategoryBar';
 import InfoBar from './InfoBar';
 import SearchBar from './SearchBar';
-import Animated, { Extrapolation, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import Animated, {
+  Extrapolation,
+  interpolate,
+  useAnimatedStyle,
+} from 'react-native-reanimated';
 import { StyleSheet, View } from 'react-native';
 import { useContext } from 'react';
 import { HomeScreenContext } from '../utils/context';

@@ -10,6 +10,9 @@ export const apiGetMsgCode = (mobile: string): Promise<ResponseType> => {
 /**
  * 登录or注册
  */
-export const apiLogin = (mobile: string, msgCode: string): Promise<ResponseType> => {
+export const apiLogin = (
+  mobile: string,
+  msgCode: string,
+): Promise<ResponseType> => {
   return https.post('login/signIn', { mobile, msgCode });
 };

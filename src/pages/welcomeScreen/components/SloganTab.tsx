@@ -1,8 +1,8 @@
-import {commonStyles, getCommonShadowStyle} from '@/common/styles';
-import {memo} from 'react';
-import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
-import {PATH} from '@/common/consts';
-import {useScreenNavigation} from '@/utils/hooks';
+import { commonStyles, getCommonShadowStyle } from '@/common/styles';
+import { memo } from 'react';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { PATH } from '@/common/consts';
+import { useScreenNavigation } from '@/utils/hooks';
 
 function SloganTab() {
   const navigation = useScreenNavigation();

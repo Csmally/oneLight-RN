@@ -1,6 +1,6 @@
-import {PATH} from '@/common/consts';
-import {commonStyles} from '@/common/styles';
-import {useScreenNavigation} from '@/utils/hooks';
+import { PATH } from '@/common/consts';
+import { commonStyles } from '@/common/styles';
+import { useScreenNavigation } from '@/utils/hooks';
 import {
   StyleSheet,
   TouchableWithoutFeedback,
@@ -20,7 +20,7 @@ type AddTypeItemProps = {
   };
 };
 
-function AddTypeItem({typeInfo}: AddTypeItemProps) {
+function AddTypeItem({ typeInfo }: AddTypeItemProps) {
   const navigation = useScreenNavigation();
   const {
     bgColor = 'pink',
@@ -33,8 +33,8 @@ function AddTypeItem({typeInfo}: AddTypeItemProps) {
   };
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
-      <View style={[styles.container, {backgroundColor: bgColor}]}>
-        <Image source={{uri: descImg}} style={styles.descImg} />
+      <View style={[styles.container, { backgroundColor: bgColor }]}>
+        <Image source={{ uri: descImg }} style={styles.descImg} />
         <View style={styles.mainInfo}>
           <Text style={styles.title} numberOfLines={1}>
             {title}

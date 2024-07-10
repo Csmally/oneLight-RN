@@ -1,5 +1,5 @@
-import {commonStyles} from '@/common/styles';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import { commonStyles } from '@/common/styles';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BlurBox from '@/components/BluerBox';
 
@@ -8,13 +8,13 @@ type MediasProps = {
 };
 
 // 一张图频或视频
-function SingleMedia({medias}: MediasProps) {
+function SingleMedia({ medias }: MediasProps) {
   const media = medias[0];
   return (
     <View style={styles.singleContainer}>
       <BlurBox />
       <Image
-        source={{uri: media}}
+        source={{ uri: media }}
         style={[styles.img, styles.singleImg]}
         resizeMode="cover"
       />
@@ -23,12 +23,12 @@ function SingleMedia({medias}: MediasProps) {
 }
 
 // 两张图频或视频
-function DoubleMedia({medias}: MediasProps) {
+function DoubleMedia({ medias }: MediasProps) {
   return medias.map((item, index) => (
     <View style={styles.doubleContainer} key={index}>
       <BlurBox />
       <Image
-        source={{uri: item}}
+        source={{ uri: item }}
         style={[styles.img, styles.doubleImg]}
         resizeMode="cover"
       />
@@ -37,13 +37,13 @@ function DoubleMedia({medias}: MediasProps) {
 }
 
 // 多张图频或视频
-function ThreeMedia({medias}: MediasProps) {
+function ThreeMedia({ medias }: MediasProps) {
   return medias.map(
     (item, index) =>
       index < 3 && (
         <View style={styles.threeContainer} key={index}>
           <Image
-            source={{uri: item}}
+            source={{ uri: item }}
             style={[styles.img, styles.threebleImg]}
             resizeMode="cover"
           />
@@ -63,7 +63,7 @@ function ThreeMedia({medias}: MediasProps) {
 }
 
 // 媒体展示容器（图片&视频）
-function Medias({medias}: MediasProps) {
+function Medias({ medias }: MediasProps) {
   return (
     <View style={[styles.container, medias.length > 1 && styles.moreContainer]}>
       {medias.length === 1 && <SingleMedia medias={medias} />}

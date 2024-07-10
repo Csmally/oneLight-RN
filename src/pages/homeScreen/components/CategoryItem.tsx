@@ -1,5 +1,5 @@
-import {commonStyles} from '@/common/styles';
-import {memo, useContext} from 'react';
+import { commonStyles } from '@/common/styles';
+import { memo, useContext } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -12,7 +12,7 @@ import Animated, {
   interpolateColor,
   useAnimatedStyle,
 } from 'react-native-reanimated';
-import {HomeScreenContext} from '../utils/context';
+import { HomeScreenContext } from '../utils/context';
 
 type CategoryItemInfo = {
   title: string;
@@ -33,7 +33,7 @@ function CategoryItem({
   selfIndex,
   activeTabIndex,
 }: CategoryItemProps) {
-  const {sharedScrollY} = useContext(HomeScreenContext);
+  const { sharedScrollY } = useContext(HomeScreenContext);
   // 分类栏item的容器动画（边距、阴影）
   const categoryContainerAnimatedStyle = useAnimatedStyle(() => {
     // 背景颜色

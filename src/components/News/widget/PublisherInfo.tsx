@@ -1,14 +1,14 @@
-import {View, StyleSheet, Text, Image} from 'react-native';
+import { View, StyleSheet, Text, Image } from 'react-native';
 
 type NewsProps = {
   news: NewsItem;
 };
 
-function PublisherInfo({news}: NewsProps) {
+function PublisherInfo({ news }: NewsProps) {
   return (
     <View style={styles.container}>
       <Image
-        source={{uri: news.avatar}}
+        source={{ uri: news.avatar }}
         style={styles.avatar}
         resizeMode="cover"
       />

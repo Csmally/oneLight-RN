@@ -36,10 +36,19 @@ function ToolsBar() {
       {Tabs.map((item, index) => (
         <View style={styles.item} key={index}>
           <View style={styles.label}>
-            <Icon name={item.icon} size={20} color='black' style={styles.labelicon} />
+            <Icon
+              name={item.icon}
+              size={20}
+              color="black"
+              style={styles.labelicon}
+            />
             <Text style={styles.labeltext}>{item.title}</Text>
           </View>
-          <Icon name='chevron-forward-outline' size={18} color={commonStyles.grey_placeholder} />
+          <Icon
+            name="chevron-forward-outline"
+            size={18}
+            color={commonStyles.grey_placeholder}
+          />
         </View>
       ))}
     </View>

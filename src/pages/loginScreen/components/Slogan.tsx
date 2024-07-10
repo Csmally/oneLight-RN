@@ -1,5 +1,5 @@
-import {memo} from 'react';
-import {StyleSheet, Text, Image} from 'react-native';
+import { memo } from 'react';
+import { StyleSheet, Text, Image } from 'react-native';
 
 function Slogan() {
   return (

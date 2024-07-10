@@ -3,5 +3,7 @@ module.exports = {
   extends: '@react-native',
   rules: {
     'react/react-in-jsx-scope': 'off',
+    curly: 'off',
+    'prettier/prettier': 'off',
   },
 };
