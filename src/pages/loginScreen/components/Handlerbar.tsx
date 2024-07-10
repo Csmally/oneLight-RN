@@ -22,12 +22,12 @@ type HandlerbarProps = {
 function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
   const navigation = useScreenNavigation();
   const loginHandle = async () => {
-    // if (!isShowPassCode || !msgCode) {
-    //   Toast.show(`请输入${!isShowPassCode ? '手机号码' : '验证码'}`);
-    //   return;
-    // }
-    // const isLogin = await login(mobile, msgCode);
-    // if (!isLogin) return;
+    if (!isShowPassCode || !msgCode) {
+      Toast.show(`请输入${!isShowPassCode ? '手机号码' : '验证码'}`);
+      return;
+    }
+    const isLogin = await login(mobile, msgCode);
+    if (!isLogin) return;
     navigation.reset({ index: 0, routes: [{ name: PATH.MAIN_SCREEN }] });
   };
   return (

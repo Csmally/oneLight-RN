@@ -69,6 +69,7 @@ function NewsTypeChooseScreen() {
   };
   useEffect(() => {
     startAnimation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const cancelChoose = () => {
     navigation.goBack();
