@@ -1,7 +1,6 @@
 import { commonStyles } from '@/common/styles';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import AddTypeItem from './components/AddTypeItem';
-import FastImage from 'react-native-fast-image';
 import Animated, {
   BounceInDown,
   BounceOutDown,
@@ -13,6 +12,7 @@ import { useEffect } from 'react';
 import RootView from '@/components/RootView';
 import BlurBox from '@/components/BluerBox';
 import { useScreenNavigation } from '@/utils/hooks';
+import OlFastImage from '@/components/OlFastImage';
 
 const Types = [
   {
@@ -49,7 +49,7 @@ const Types = [
   },
 ];
 
-const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+const AnimatedOlFastImage = Animated.createAnimatedComponent(OlFastImage);
 
 function NewsTypeChooseScreen() {
   const navigation = useScreenNavigation();
@@ -86,12 +86,11 @@ function NewsTypeChooseScreen() {
             <AddTypeItem key={item.id} typeInfo={item} />
           ))}
         </Animated.View>
-        <TouchableWithoutFeedback onPress={cancelChoose}>
-          <AnimatedFastImage
-            source={require('./static/publish.png')}
-            style={[styles.close, animatedStyle]}
-          />
-        </TouchableWithoutFeedback>
+        <AnimatedOlFastImage
+          source={require('./static/publish.png')}
+          style={[styles.close, animatedStyle]}
+          onPress={cancelChoose}
+        />
       </View>
     </RootView>
   );

@@ -1,11 +1,11 @@
+import OlFastImage from '@/components/OlFastImage';
 import { memo } from 'react';
 import { StyleSheet, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
 function Slogan() {
   return (
     <>
-      <FastImage
+      <OlFastImage
         style={[styles.viewMargin, styles.logo]}
         source={require('@/static/icons/appLogo.png')}
       />

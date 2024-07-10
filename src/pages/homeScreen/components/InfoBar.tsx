@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import {
   View,
   StyleSheet,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   LayoutChangeEvent,
   Text,
@@ -16,10 +15,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { HomeScreenContext } from '../utils/context';
-import FastImage from 'react-native-fast-image';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import OlFastImage from '@/components/OlFastImage';
 
-const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+const AnimatedOlFastImage = Animated.createAnimatedComponent(OlFastImage);
 
 function InfoBar() {
   const { sharedScrollY } = useContext(HomeScreenContext);
@@ -103,18 +102,16 @@ function InfoBar() {
           </Text>
         </Animated.View>
         <View style={[styles.settings, styles.avatarSetting]}>
-          <TouchableOpacity
+          <AnimatedOlFastImage
+            style={avatarAnimatedStyle}
+            source={{
+              uri: 'https://ice.frostsky.com/2024/07/11/e9b6d932454231a7d21f15d3d95b0aa5.md.jpeg',
+            }}
+            resizeMode="cover"
             onPress={() => {
               console.log('9898我是个人信息');
-            }}>
-            <AnimatedFastImage
-              style={avatarAnimatedStyle}
-              source={{
-                uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',
-              }}
-              resizeMode="cover"
-            />
-          </TouchableOpacity>
+            }}
+          />
         </View>
         {/* 搜索框热区 */}
         <TouchableWithoutFeedback

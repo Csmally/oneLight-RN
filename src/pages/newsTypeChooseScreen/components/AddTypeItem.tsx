@@ -1,8 +1,8 @@
 import { PATH } from '@/common/consts';
 import { commonStyles } from '@/common/styles';
+import OlFastImage from '@/components/OlFastImage';
 import { useScreenNavigation } from '@/utils/hooks';
 import { StyleSheet, TouchableWithoutFeedback, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type AddTypeItemProps = {
@@ -29,7 +29,7 @@ function AddTypeItem({ typeInfo }: AddTypeItemProps) {
   return (
     <TouchableWithoutFeedback onPress={goPublish}>
       <View style={[styles.container, { backgroundColor: bgColor }]}>
-        <FastImage source={{ uri: descImg }} style={styles.descImg} />
+        <OlFastImage source={{ uri: descImg }} style={styles.descImg} />
         <View style={styles.mainInfo}>
           <Text style={styles.title} numberOfLines={1}>
             {title}

@@ -1,6 +1,6 @@
 import { commonStyles } from '@/common/styles';
+import OlFastImage from '@/components/OlFastImage';
 import { StyleSheet, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
 function FeedBackBar() {
   return (
@@ -10,7 +10,7 @@ function FeedBackBar() {
           <Text style={[styles.tagTitle, styles.titleColor1]}>加入我们</Text>
           <Text style={styles.tagDesc}>加入团队</Text>
         </View>
-        <FastImage
+        <OlFastImage
           style={styles.icon}
           source={require('@/common/static/joinus.png')}
         />
@@ -20,7 +20,7 @@ function FeedBackBar() {
           <Text style={[styles.tagTitle, styles.titleColor2]}>调查问卷</Text>
           <Text style={styles.tagDesc}>问答有礼</Text>
         </View>
-        <FastImage
+        <OlFastImage
           style={styles.icon}
           source={require('@/common/static/qa.png')}
         />

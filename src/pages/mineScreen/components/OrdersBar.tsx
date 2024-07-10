@@ -1,6 +1,6 @@
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
+import OlFastImage from '@/components/OlFastImage';
 import { View, StyleSheet, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tabs = [
@@ -39,7 +39,7 @@ function OrdersBar() {
       <View style={styles.toolsBar}>
         {Tabs.map((item, index) => (
           <View style={styles.item} key={index}>
-            <FastImage
+            <OlFastImage
               source={item.icon}
               resizeMode="cover"
               style={styles.img}

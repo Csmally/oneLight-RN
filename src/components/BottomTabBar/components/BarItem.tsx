@@ -1,12 +1,12 @@
 import { memo, useEffect } from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
+import OlFastImage from '@/components/OlFastImage';
 
 type BarItemProps = {
   currentIndex: number;
@@ -15,7 +15,7 @@ type BarItemProps = {
   navigation: any;
 };
 
-const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+const AnimatedOlFastImage = Animated.createAnimatedComponent(OlFastImage);
 
 function BarItem({ currentIndex, selfIndex, route, navigation }: BarItemProps) {
   const isFocus = currentIndex === selfIndex;
@@ -50,12 +50,12 @@ function BarItem({ currentIndex, selfIndex, route, navigation }: BarItemProps) {
     <TouchableWithoutFeedback onPress={selectTab}>
       <View style={styles.container}>
         {isFocus ? (
-          <AnimatedFastImage
+          <AnimatedOlFastImage
             source={getImgSource(selfIndex, isFocus)}
             style={[styles.img, animatedStyle]}
           />
         ) : (
-          <FastImage
+          <OlFastImage
             source={getImgSource(selfIndex, isFocus)}
             style={styles.img}
           />

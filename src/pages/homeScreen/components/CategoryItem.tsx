@@ -8,7 +8,7 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 import { HomeScreenContext } from '../utils/context';
-import FastImage from 'react-native-fast-image';
+import OlFastImage from '@/components/OlFastImage';
 
 type CategoryItemInfo = {
   title: string;
@@ -114,7 +114,7 @@ function CategoryItem({
   return (
     <TouchableWithoutFeedback onPress={() => changeActiveTab(selfIndex)}>
       <Animated.View style={[styles.tabItem, categoryContainerAnimatedStyle]}>
-        <FastImage
+        <OlFastImage
           source={categoryInfo.img}
           style={styles.tabIcon}
           resizeMode="cover"

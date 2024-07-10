@@ -2,7 +2,7 @@ import { commonStyles } from '@/common/styles';
 import { StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BlurBox from '@/components/BluerBox';
-import FastImage from 'react-native-fast-image';
+import OlFastImage from '@/components/OlFastImage';
 
 type MediasProps = {
   medias: string[];
@@ -14,7 +14,7 @@ function SingleMedia({ medias }: MediasProps) {
   return (
     <View style={styles.singleContainer}>
       <BlurBox />
-      <FastImage
+      <OlFastImage
         source={{ uri: media }}
         style={[styles.img, styles.singleImg]}
         resizeMode="cover"
@@ -28,7 +28,7 @@ function DoubleMedia({ medias }: MediasProps) {
   return medias.map((item, index) => (
     <View style={styles.doubleContainer} key={index}>
       <BlurBox />
-      <FastImage
+      <OlFastImage
         source={{ uri: item }}
         style={[styles.img, styles.doubleImg]}
         resizeMode="cover"
@@ -43,7 +43,7 @@ function ThreeMedia({ medias }: MediasProps) {
     (item, index) =>
       index < 3 && (
         <View style={styles.threeContainer} key={index}>
-          <FastImage
+          <OlFastImage
             source={{ uri: item }}
             style={[styles.img, styles.threebleImg]}
             resizeMode="cover"
