@@ -1,5 +1,5 @@
 import {NavigationContainer} from '@react-navigation/native';
-// import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import BottomTabBar from '@/components/BottomTabBar';
@@ -16,17 +16,17 @@ const Stack = createNativeStackNavigator();
 const BottomTabNavigator = createBottomTabNavigator();
 
 function App() {
-  // const isLoadedApp = Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP) ?? false;
+  const isLoadedApp = Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP) ?? false;
   const hideSplashScreen = () => {
-    // SplashScreen.hide();
+    SplashScreen.hide();
   };
   return (
     <StoreContext.Provider value={stores}>
       <NavigationContainer onReady={hideSplashScreen}>
         <Stack.Navigator
-          // initialRouteName={
-          //   isLoadedApp ? PATH.MAIN_SCREEN : PATH.WELCOME_SCREEN
-          // }
+          initialRouteName={
+            isLoadedApp ? PATH.MAIN_SCREEN : PATH.WELCOME_SCREEN
+          }
           screenOptions={{
             statusBarTranslucent: true,
             statusBarColor: 'transparent',
@@ -39,11 +39,11 @@ function App() {
             },
             headerBlurEffect: 'light',
           }}>
-          {/* <Stack.Screen
+          <Stack.Screen
             name={PATH.MAIN_SCREEN}
             component={RootMainRoutes}
             options={{headerShown: false, title: ''}}
-          /> */}
+          />
           {AppPaths.map(route => (
             <Stack.Screen
               name={route.path}
