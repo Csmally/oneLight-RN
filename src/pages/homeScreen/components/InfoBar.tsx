@@ -19,7 +19,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OlFastImage from '@/components/OlFastImage';
 
 const AnimatedOlFastImage = Animated.createAnimatedComponent(OlFastImage);
-
 function InfoBar() {
   const { sharedScrollY } = useContext(HomeScreenContext);
   // 热区宽度
