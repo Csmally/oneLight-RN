@@ -1,5 +1,5 @@
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Animated, {
   measure,
   runOnUI,
@@ -7,6 +7,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { memo, useContext } from 'react';
 import { MineScreenContext } from '../utils/context';
+import FastImage from 'react-native-fast-image';
 
 function UserInfoBar() {
   const { userInfoBarHeight } = useContext(MineScreenContext);
@@ -40,7 +41,7 @@ function UserInfoBar() {
       </View>
       <View style={styles.avatarContainer}>
         <View style={[styles.avatarBox, styles.avatar]}>
-          <Image
+          <FastImage
             style={styles.avatar}
             source={{
               uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',
@@ -48,7 +49,7 @@ function UserInfoBar() {
             resizeMode="cover"
           />
         </View>
-        <Image
+        <FastImage
           style={styles.genderIcon}
           source={require('@/common/static/male.png')}
           resizeMode="cover"

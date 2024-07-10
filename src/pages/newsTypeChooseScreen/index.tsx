@@ -1,6 +1,7 @@
 import { commonStyles } from '@/common/styles';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import AddTypeItem from './components/AddTypeItem';
+import FastImage from 'react-native-fast-image';
 import Animated, {
   BounceInDown,
   BounceOutDown,
@@ -48,6 +49,8 @@ const Types = [
   },
 ];
 
+const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+
 function NewsTypeChooseScreen() {
   const navigation = useScreenNavigation();
   // 关闭按钮旋转动画
@@ -83,7 +86,7 @@ function NewsTypeChooseScreen() {
           ))}
         </Animated.View>
         <TouchableWithoutFeedback onPress={cancelChoose}>
-          <Animated.Image
+          <AnimatedFastImage
             source={require('./static/publish.png')}
             style={[styles.close, animatedStyle]}
           />

@@ -1,10 +1,6 @@
 import { memo, useEffect } from 'react';
-import {
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Image,
-} from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -18,6 +14,8 @@ type BarItemProps = {
   route: any;
   navigation: any;
 };
+
+const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
 
 function BarItem({ currentIndex, selfIndex, route, navigation }: BarItemProps) {
   const isFocus = currentIndex === selfIndex;
@@ -52,12 +50,15 @@ function BarItem({ currentIndex, selfIndex, route, navigation }: BarItemProps) {
     <TouchableWithoutFeedback onPress={selectTab}>
       <View style={styles.container}>
         {isFocus ? (
-          <Animated.Image
+          <AnimatedFastImage
             source={getImgSource(selfIndex, isFocus)}
             style={[styles.img, animatedStyle]}
           />
         ) : (
-          <Image source={getImgSource(selfIndex, isFocus)} style={styles.img} />
+          <FastImage
+            source={getImgSource(selfIndex, isFocus)}
+            style={styles.img}
+          />
         )}
       </View>
     </TouchableWithoutFeedback>

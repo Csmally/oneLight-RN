@@ -1,11 +1,6 @@
 import { commonStyles } from '@/common/styles';
 import { memo, useContext } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Image,
-} from 'react-native';
+import { Platform, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import Animated, {
   Extrapolation,
   interpolate,
@@ -13,6 +8,7 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 import { HomeScreenContext } from '../utils/context';
+import FastImage from 'react-native-fast-image';
 
 type CategoryItemInfo = {
   title: string;
@@ -21,7 +17,6 @@ type CategoryItemInfo = {
 };
 type CategoryItemProps = {
   categoryInfo: CategoryItemInfo;
-  // eslint-disable-next-line no-unused-vars
   changeActiveTab: (index: number) => void;
   selfIndex: number;
   activeTabIndex: number;
@@ -119,7 +114,7 @@ function CategoryItem({
   return (
     <TouchableWithoutFeedback onPress={() => changeActiveTab(selfIndex)}>
       <Animated.View style={[styles.tabItem, categoryContainerAnimatedStyle]}>
-        <Image
+        <FastImage
           source={categoryInfo.img}
           style={styles.tabIcon}
           resizeMode="cover"

@@ -9,8 +9,8 @@ import {
   TouchableWithoutFeedback,
   View,
   Text,
-  Image,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Animated, { Layout } from 'react-native-reanimated';
 
 type HandlerbarProps = {
@@ -22,12 +22,12 @@ type HandlerbarProps = {
 function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
   const navigation = useScreenNavigation();
   const loginHandle = async () => {
-    if (!isShowPassCode || !msgCode) {
-      Toast.show(`请输入${!isShowPassCode ? '手机号码' : '验证码'}`);
-      return;
-    }
-    const isLogin = await login(mobile, msgCode);
-    if (!isLogin) return;
+    // if (!isShowPassCode || !msgCode) {
+    //   Toast.show(`请输入${!isShowPassCode ? '手机号码' : '验证码'}`);
+    //   return;
+    // }
+    // const isLogin = await login(mobile, msgCode);
+    // if (!isLogin) return;
     navigation.reset({ index: 0, routes: [{ name: PATH.MAIN_SCREEN }] });
   };
   return (
@@ -35,13 +35,13 @@ function Handlerbar({ isShowPassCode, mobile, msgCode }: HandlerbarProps) {
       <Text style={[styles.or, styles.viewMargin]}>或</Text>
       <View style={[styles.loginMethods, styles.viewMargin]}>
         <TouchableWithoutFeedback onPress={loginHandle}>
-          <Image
+          <FastImage
             style={styles.loginMethod}
             source={require('@/static/icons/wechat.png')}
           />
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={loginHandle}>
-          <Image
+          <FastImage
             style={styles.loginMethod}
             source={require('@/static/icons/alipay.png')}
           />

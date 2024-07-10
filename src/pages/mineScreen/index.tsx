@@ -1,5 +1,4 @@
-import { StyleSheet, Text } from 'react-native';
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import BusinessInfoBar from './components/BusinessInfoBar';
 import OrdersBar from './components/OrdersBar';
 import ToolsBar from './components/ToolsBar';

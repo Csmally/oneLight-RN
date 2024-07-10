@@ -2,12 +2,8 @@ import { PATH } from '@/common/consts';
 import BlurBox from '@/components/BluerBox';
 import { useScreenNavigation } from '@/utils/hooks';
 import { memo } from 'react';
-import {
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Image,
-} from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 function PublishTool() {
   const navigation = useScreenNavigation();
@@ -21,7 +17,7 @@ function PublishTool() {
           <View style={styles.blurContainer}>
             <BlurBox />
           </View>
-          <Image
+          <FastImage
             source={require('../static/publish.png')}
             style={styles.submitBtn}
           />

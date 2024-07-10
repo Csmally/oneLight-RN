@@ -1,14 +1,14 @@
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomTabBar from '@/components/BottomTabBar';
-import {AppPaths, RootMainPaths} from '@/pages/screensMap';
-import {StoreContext, stores} from '@/store';
-import {PATH} from '@/common/consts';
+import { AppPaths, RootMainPaths } from '@/pages/screensMap';
+import { StoreContext, stores } from '@/store';
+import { PATH } from '@/common/consts';
 import Storage from '@/storage';
-import {STORAGE_KEYS} from '@/interfaces/commonEnum';
-import {commonStyles} from '@/common/styles';
+import { STORAGE_KEYS } from '@/interfaces/commonEnum';
+import { commonStyles } from '@/common/styles';
 
 // 顶级根路由栈
 const Stack = createNativeStackNavigator();
@@ -42,7 +42,7 @@ function App() {
           <Stack.Screen
             name={PATH.MAIN_SCREEN}
             component={RootMainRoutes}
-            options={{headerShown: false, title: ''}}
+            options={{ headerShown: false, title: '' }}
           />
           {AppPaths.map(route => (
             <Stack.Screen
@@ -70,7 +70,7 @@ function App() {
 function RootMainRoutes() {
   return (
     <BottomTabNavigator.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{ headerShown: false }}
       tabBar={BottomTabBar}>
       {RootMainPaths.map(route => (
         <BottomTabNavigator.Screen

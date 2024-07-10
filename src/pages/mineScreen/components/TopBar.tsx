@@ -5,7 +5,6 @@ import {
   Dimensions,
   StyleSheet,
   TouchableWithoutFeedback,
-  Image,
 } from 'react-native';
 import { MineScreenContext } from '../utils/context';
 import Animated, {
@@ -14,6 +13,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import FastImage from 'react-native-fast-image';
 
 function TopBar() {
   const { top: statusBarHeight } = useSafeAreaInsets();
@@ -57,7 +57,7 @@ function TopBar() {
   return (
     <Animated.View style={[styles.container, { paddingTop: statusBarHeight }]}>
       <TouchableWithoutFeedback onPress={bb}>
-        <Image
+        <FastImage
           style={[{ width: iconWidth }, styles.icon]}
           source={require('@/common/static/message.png')}
           resizeMode="cover"
@@ -68,7 +68,7 @@ function TopBar() {
           styles.spaceBox,
           { width: sharedWidth, transform: [{ scale: sharedScale }] },
         ]}>
-        <Image
+        <FastImage
           style={styles.avatarStyle}
           source={{
             uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',
@@ -80,7 +80,7 @@ function TopBar() {
         </Text>
       </Animated.View>
       <TouchableWithoutFeedback onPress={aa}>
-        <Image
+        <FastImage
           style={[{ width: iconWidth }, styles.icon]}
           source={require('@/common/static/setting.png')}
           resizeMode="cover"

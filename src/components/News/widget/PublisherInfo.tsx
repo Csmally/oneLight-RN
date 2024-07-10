@@ -1,4 +1,5 @@
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 type NewsProps = {
   news: NewsItem;
@@ -7,7 +8,7 @@ type NewsProps = {
 function PublisherInfo({ news }: NewsProps) {
   return (
     <View style={styles.container}>
-      <Image
+      <FastImage
         source={{ uri: news.avatar }}
         style={styles.avatar}
         resizeMode="cover"

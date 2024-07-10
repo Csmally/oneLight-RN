@@ -1,10 +1,11 @@
 import { memo } from 'react';
-import { StyleSheet, Text, Image } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 function Slogan() {
   return (
     <>
-      <Image
+      <FastImage
         style={[styles.viewMargin, styles.logo]}
         source={require('@/static/icons/appLogo.png')}
       />
