@@ -1,4 +1,4 @@
-import { PATH } from '@/common/consts';
+import { PATH } from '@/interfaces/commonEnum';
 import { commonStyles } from '@/common/styles';
 import OlFastImage from '@/components/OlFastImage';
 import { useScreenNavigation } from '@/utils/hooks';

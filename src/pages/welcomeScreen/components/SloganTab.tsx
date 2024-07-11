@@ -1,10 +1,10 @@
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
 import { memo } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
-import { PATH } from '@/common/consts';
+import { PATH } from '@/interfaces/commonEnum';
 import { useScreenNavigation } from '@/utils/hooks';
 
-function SloganTab() {
+function SloganTab({ bottomSafeArea }: { bottomSafeArea: number }) {
   const navigation = useScreenNavigation();
   const joinUs = () => {
     console.log('9898加入我们！！！');
@@ -13,7 +13,7 @@ function SloganTab() {
     navigation.navigate(PATH.LOGIN_SCREEN);
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: bottomSafeArea }]}>
       <View>
         <Text style={[styles.fontStyle, styles.title]}>
           Welcome Use OneLight
@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingBottom: 30,
   },
   fontStyle: {
     textAlign: 'center',

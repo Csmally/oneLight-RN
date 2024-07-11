@@ -71,7 +71,7 @@ function TypeNewsList({ route }: TypeNewsListProps) {
     getNewsData('loadmore');
   };
   // 底部导航栏高度
-  const BottomTabBarHeight = useBottomTabBarHeight();
+  const BottomTabBarHeight = useBottomTabBarHeight() + 20;
   return (
     <View style={styles.page}>
       <AnimatedFlashList
@@ -105,7 +105,8 @@ function TypeNewsList({ route }: TypeNewsListProps) {
             onRefresh={initRefresh}
             progressViewOffset={
               isAll ? initTopbarHeight : initTopbarHeight - 90
-            }></RefreshControl>
+            }
+          />
         }
         onEndReached={loadMoreData}
         onEndReachedThreshold={0.8}

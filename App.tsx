@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomTabBar from '@/components/BottomTabBar';
 import { AppPaths, RootMainPaths } from '@/pages/screensMap';
 import { StoreContext, stores } from '@/store';
-import { PATH } from '@/common/consts';
+import { PATH } from '@/interfaces/commonEnum';
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { commonStyles } from '@/common/styles';

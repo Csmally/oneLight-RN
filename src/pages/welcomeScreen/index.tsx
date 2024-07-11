@@ -5,6 +5,9 @@ import OpacitySwiper from './components/OpacitySwiper';
 import SloganTab from './components/SloganTab';
 import RootView from '@/components/RootView';
 import BlurBox from '@/components/BluerBox';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Storage from '@/storage';
+import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 
 const imgUrls = [
   'https://ice.frostsky.com/2024/07/11/d6c223fbdbdd6389e6fed43678b58e38.jpeg',
@@ -12,6 +15,8 @@ const imgUrls = [
   'https://ice.frostsky.com/2024/07/11/40dc0f4b7303ff272fa4b7f42b532874.jpeg',
 ];
 function WelcomeScreen() {
+  const { bottom } = useSafeAreaInsets();
+  Storage.set(STORAGE_KEYS.BOTTOM_SAFEAREA, bottom);
   const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,7 +36,7 @@ function WelcomeScreen() {
       <View style={styles.container}>
         <BlurBox />
         <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
-        <SloganTab />
+        <SloganTab bottomSafeArea={bottom} />
       </View>
     </RootView>
   );

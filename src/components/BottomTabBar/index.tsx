@@ -3,11 +3,17 @@ import BarItem from './components/BarItem';
 import PublishTool from './components/PublishTool';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import BlurBox from '@/components/BluerBox';
+import Storage from '@/storage';
+import { STORAGE_KEYS } from '@/interfaces/commonEnum';
+import { DeviceInfo } from '@/common/consts';
 
 function BottomTabBar(props: BottomTabBarProps) {
   const { state, navigation } = props;
+  const bottomArea =
+    Storage.getNumber(STORAGE_KEYS.BOTTOM_SAFEAREA) ??
+    DeviceInfo.DEFAULT_BOTTOM_SAFEAREA;
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container, { paddingBottom: bottomArea + 20 }]}>
       <BlurBox />
       <BarItem
         currentIndex={state.index}
@@ -45,7 +51,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     paddingTop: 10,
-    paddingBottom: 50,
   },
 });
 

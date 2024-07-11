@@ -1,4 +1,4 @@
-import { PATH } from '@/common/consts';
+import { PATH } from '@/interfaces/commonEnum';
 import BlurBox from '@/components/BluerBox';
 import OlFastImage from '@/components/OlFastImage';
 import { useScreenNavigation } from '@/utils/hooks';

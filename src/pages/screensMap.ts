@@ -1,4 +1,4 @@
-import { PATH } from '@/common/consts';
+import { PATH } from '@/interfaces/commonEnum';
 import WelcomeScreen from './welcomeScreen';
 import LoginScreen from './loginScreen';
 import HomeScreen from './homeScreen';
