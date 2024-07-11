@@ -7,9 +7,9 @@ import RootView from '@/components/RootView';
 import BlurBox from '@/components/BluerBox';
 
 const imgUrls = [
-  'https://tuchuangs.com/imgs/2023/04/23/945f7dee14fb39f4.jpeg',
-  'https://tuchuangs.com/imgs/2023/04/23/d12921d23883b1d7.jpeg',
-  'https://tuchuangs.com/imgs/2023/04/23/1bc98cb602be8e78.jpeg',
+  'https://ice.frostsky.com/2024/07/11/d6c223fbdbdd6389e6fed43678b58e38.jpeg',
+  'https://ice.frostsky.com/2024/07/11/e540200219e55fd05efcf5a5d377ed82.jpeg',
+  'https://ice.frostsky.com/2024/07/11/40dc0f4b7303ff272fa4b7f42b532874.jpeg',
 ];
 function WelcomeScreen() {
   const [activeIndex, setActiveIndex] = useState(0);
