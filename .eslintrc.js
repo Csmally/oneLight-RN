@@ -5,5 +5,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     curly: 'off',
     'prettier/prettier': 'off',
+    'react-native/no-inline-styles': 'off',
   },
 };

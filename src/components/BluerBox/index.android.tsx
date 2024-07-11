@@ -1,22 +1,15 @@
-import { BlurView } from '@react-native-community/blur';
+import { commonStyles } from '@/common/styles';
 import { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 function BlurBox() {
-  return (
-    <View style={styles.container}>
-      <BlurView style={styles.blur} blurType="xlight" blurAmount={50} />
-    </View>
-  );
+  return <View style={styles.blur} />;
 }
 
 const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    overflow: 'hidden',
-  },
   blur: {
     ...StyleSheet.absoluteFillObject,
+    backgroundColor: commonStyles.pageBgColor,
   },
 });
 
