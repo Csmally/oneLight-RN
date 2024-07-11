@@ -6,6 +6,7 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnable
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
+import com.rnimmersivebars.ImmersiveBars;
 
 class MainActivity : ReactActivity() {
 
@@ -26,6 +27,7 @@ class MainActivity : ReactActivity() {
    * 安装React-Navigation的修改
   */
   override fun onCreate(savedInstanceState: Bundle?) {
+    ImmersiveBars.changeBarColors(this, false);
     SplashScreen.show(this);
     super.onCreate(null)
   }

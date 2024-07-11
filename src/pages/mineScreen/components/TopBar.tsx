@@ -65,7 +65,7 @@ function TopBar() {
         <OlFastImage
           style={styles.avatarStyle}
           source={{
-            uri: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',
+            uri: 'https://ice.frostsky.com/2024/07/11/e9b6d932454231a7d21f15d3d95b0aa5.md.jpeg',
           }}
           resizeMode="cover"
         />

@@ -30,7 +30,7 @@ const newsData: NewsItem[] = [
   {
     id: '3',
     publisherName: '盖世英雄',
-    avatar: 'https://tuchuangs.com/imgs/2023/09/18/44d99b5d075ce313.jpg',
+    avatar: 'https://ice.frostsky.com/2024/07/11/e9b6d932454231a7d21f15d3d95b0aa5.md.jpeg',
     imgs: [
       'https://tuchuangs.com/imgs/2023/04/23/945f7dee14fb39f4.jpeg',
       'https://tuchuangs.com/imgs/2023/04/23/d12921d23883b1d7.jpeg',
