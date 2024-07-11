@@ -48,7 +48,7 @@ function ThreeMedia({ medias }: MediasProps) {
             style={[styles.img, styles.threebleImg]}
             resizeMode="cover"
           />
-          {index === 2 && (
+          {index === 2 && medias.length > 3 && (
             <View style={styles.imgCount}>
               <Icon
                 name="images-outline"

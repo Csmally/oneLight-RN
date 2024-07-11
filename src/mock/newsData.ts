@@ -34,8 +34,8 @@ const newsData: NewsItem[] = [
     imgs: [
       'https://ice.frostsky.com/2024/07/11/12ce3a136c1a9fdeb470c83ffccbf276.jpeg',
       'https://ice.frostsky.com/2024/07/11/aa3edc725bda2f6bbf6b8e4b3ee47a0a.jpeg',
-      'https://tuchuangs.com/imgs/2023/09/24/d455278ce63be540.webp',
-      'https://tuchuangs.com/imgs/2023/09/24/767f8f6dc8ca04e4.jpg'
+      'https://ice.frostsky.com/2024/07/11/a0679e9ab7822ad467452aa3afd0bf11.jpeg',
+      'https://ice.frostsky.com/2024/07/11/40dc0f4b7303ff272fa4b7f42b532874.jpeg'
     ],
     description: '减肥黄金时代放假开始就',
     publishTime: '1小时前',
