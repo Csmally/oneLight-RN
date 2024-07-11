@@ -42,6 +42,7 @@ const AppPaths: Route[] = [
     path: 'Test',
     component: TestScreen,
     title: '测试',
+    animation: 'slide_from_right',
   },
 ];
 

@@ -42,7 +42,7 @@ function App() {
           <Stack.Screen
             name={PATH.MAIN_SCREEN}
             component={RootMainRoutes}
-            options={{ headerShown: false, title: '' }}
+            options={{ headerShown: false, title: '', animation: 'fade' }}
           />
           {AppPaths.map(route => (
             <Stack.Screen
