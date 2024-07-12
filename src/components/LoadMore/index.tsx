@@ -5,10 +5,13 @@ import Animated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
+import OlFastImage from '@/components/OlFastImage';
 
 type LoadMoreProps = {
   isLoadingMore: boolean;
 };
+
+const AnimatedOlFastImage = Animated.createAnimatedComponent(OlFastImage);
 
 function LoadMoreAnimated() {
   // 透明度动画共享变量
@@ -27,8 +30,8 @@ function LoadMoreAnimated() {
   }));
   return (
     <View style={styles.container}>
-      <Animated.Image
-        source={require('./static/lightning.png')}
+      <AnimatedOlFastImage
+        source={require('@/static/icons/lightning.png')}
         style={[styles.img, animatedStyle]}
       />
     </View>

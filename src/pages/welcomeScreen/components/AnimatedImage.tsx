@@ -1,3 +1,4 @@
+import OlFastImage from '@/components/OlFastImage';
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, {
@@ -12,6 +13,9 @@ type AnimatedImageProps = {
   selfIndex: number;
   activeIndex: number;
 };
+
+const AnimatedOlFastImage = Animated.createAnimatedComponent(OlFastImage);
+
 function AnimatedImage({ uri, selfIndex, activeIndex }: AnimatedImageProps) {
   const animatedOpacity = useSharedValue(0);
   const animatedStyles = useAnimatedStyle(() => {
@@ -30,7 +34,7 @@ function AnimatedImage({ uri, selfIndex, activeIndex }: AnimatedImageProps) {
     }
   }, [activeIndex, animatedOpacity, selfIndex]);
   return (
-    <Animated.Image
+    <AnimatedOlFastImage
       source={{ uri }}
       style={[styles.container, animatedStyles]}
     />
