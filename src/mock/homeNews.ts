@@ -1,6 +1,6 @@
-const IP = '10.193.235.32';
+import { IP } from './hostConfig';
 
-const newsData: NewsItem[] = [
+const homeNews: NewsItem[] = [
   {
     id: '1',
     publisherName: 'CYXI',
@@ -9,7 +9,7 @@ const newsData: NewsItem[] = [
       `http://${IP}:7002/public/imgs/big/1.jpg`,
       `http://${IP}:7002/public/imgs/big/4.jpg`,
       `http://${IP}:7002/public/imgs/small/2.jpg`,
-      `http://${IP}:7002/public/imgs/big/11.jpg`,
+      `http://${IP}:7002/public/imgs/big/4.jpg`,
       `http://${IP}:7002/public/imgs/small/4.jpg`,
       `http://${IP}:7002/public/imgs/big/6.jpg`,
     ],
@@ -35,7 +35,7 @@ const newsData: NewsItem[] = [
     publisherName: '盖世英雄',
     avatar: `http://${IP}:7002/public/imgs/small/3.jpg`,
     imgs: [
-      `http://${IP}:7002/public/imgs/big/11.jpg`,
+      `http://${IP}:7002/public/imgs/big/2.jpg`,
       `http://${IP}:7002/public/imgs/small/5.jpg`,
       `http://${IP}:7002/public/imgs/small/1.jpg`,
       `http://${IP}:7002/public/imgs/big/10.jpg`,
@@ -51,9 +51,7 @@ const newsData: NewsItem[] = [
     description: '减肥黄金时代放假开始就',
     publishTime: '2023-09-23 13:12:00',
     tags: [3],
-    imgs: [
-      `http://${IP}:7002/public/imgs/big/3.jpg`,
-    ],
+    imgs: [`http://${IP}:7002/public/imgs/big/3.jpg`],
   },
   {
     id: '5',
@@ -88,9 +86,7 @@ const newsData: NewsItem[] = [
     description: '减肥黄金时代放假开始就',
     publishTime: '2023-09-23 13:12:00',
     tags: [3],
-    imgs: [
-      `http://${IP}:7002/public/imgs/small/9.jpg`,
-    ],
+    imgs: [`http://${IP}:7002/public/imgs/small/9.jpg`],
   },
   {
     id: '9',
@@ -106,10 +102,8 @@ const newsData: NewsItem[] = [
     description: '减肥黄金时代放假开始就',
     publishTime: '2023-09-23 13:12:00',
     tags: [3],
-    imgs: [
-      `http://${IP}:7002/public/imgs/big/6.jpg`,
-    ],
+    imgs: [`http://${IP}:7002/public/imgs/big/6.jpg`],
   },
 ];
 
-export default newsData;
+export default homeNews;

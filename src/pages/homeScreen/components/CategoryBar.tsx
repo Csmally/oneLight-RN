@@ -2,34 +2,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import CategoryItem from './CategoryItem';
 import { HomeScreenContext } from '../utils/context';
 import { FlatList } from 'react-native';
-
-const tabs = [
-  {
-    title: '全部',
-    img: require('../static/all.png'),
-    id: '0',
-  },
-  {
-    title: '美食',
-    img: require('../static/food.png'),
-    id: '1',
-  },
-  {
-    title: '快递',
-    img: require('../static/express.png'),
-    id: '2',
-  },
-  {
-    title: 'Replace',
-    img: require('../static/class.png'),
-    id: '3',
-  },
-  {
-    title: '兼职',
-    img: require('../static/job.png'),
-    id: '4',
-  },
-];
+import { homeTabs } from '@/mock';
 
 function CategoryBar() {
   const {
@@ -68,7 +41,7 @@ function CategoryBar() {
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       removeClippedSubviews={true}
-      data={tabs}
+      data={homeTabs}
       keyExtractor={item => item.id}
       renderItem={({ item, index }) => (
         <CategoryItem

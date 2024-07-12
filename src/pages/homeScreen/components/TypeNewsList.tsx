@@ -5,7 +5,7 @@ import Animated, { useAnimatedScrollHandler } from 'react-native-reanimated';
 import EmptyComponent from '@/components/EmptyComponent';
 import News from '@/components/News';
 import LoadMore from '@/components/LoadMore';
-import newsDataMock from '@/mock/newsData';
+import { homeNews } from '@/mock';
 import HomeHeaderActivity from './HomeHeaderActivity';
 import { FlashList } from '@shopify/flash-list';
 import { commonStyles } from '@/common/styles';
@@ -14,7 +14,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 const apifunc = async () => {
   return new Promise(res => {
     setTimeout(() => {
-      const data: NewsItem[] = newsDataMock.map((item, index) => ({
+      const data: NewsItem[] = homeNews.map((item, index) => ({
         ...item,
         id: index + '-' + new Date().getTime(),
       }));

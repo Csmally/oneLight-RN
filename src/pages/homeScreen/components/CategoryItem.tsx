@@ -115,7 +115,7 @@ function CategoryItem({
     <TouchableWithoutFeedback onPress={() => changeActiveTab(selfIndex)}>
       <Animated.View style={[styles.tabItem, categoryContainerAnimatedStyle]}>
         <OlFastImage
-          source={categoryInfo.img}
+          source={{ uri: categoryInfo.img }}
           style={styles.tabIcon}
           resizeMode="cover"
         />
