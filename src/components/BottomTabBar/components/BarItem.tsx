@@ -81,28 +81,28 @@ const getImgSource = (selfIndex: number, isFocus: boolean) => {
   switch (selfIndex) {
     case 0:
       source = isFocus
-        ? require('../static/homeSelect.png')
-        : require('../static/home.png');
+        ? require('@/static/bottomBarIcons/homeSelect.png')
+        : require('@/static/bottomBarIcons/home.png');
       break;
     case 1:
       source = isFocus
-        ? require('../static/marketSelect.png')
-        : require('../static/market.png');
+        ? require('@/static/bottomBarIcons/marketSelect.png')
+        : require('@/static/bottomBarIcons/market.png');
       break;
     case 2:
       source = isFocus
-        ? require('../static/circleSelect.png')
-        : require('../static/circle.png');
+        ? require('@/static/bottomBarIcons/circleSelect.png')
+        : require('@/static/bottomBarIcons/circle.png');
       break;
     case 3:
       source = isFocus
-        ? require('../static/mineSelect.png')
-        : require('../static/mine.png');
+        ? require('@/static/bottomBarIcons/mineSelect.png')
+        : require('@/static/bottomBarIcons/mine.png');
       break;
     default:
       source = isFocus
-        ? require('../static/homeSelect.png')
-        : require('../static/home.png');
+        ? require('@/static/bottomBarIcons/homeSelect.png')
+        : require('@/static/bottomBarIcons/home.png');
       break;
   }
   return source;

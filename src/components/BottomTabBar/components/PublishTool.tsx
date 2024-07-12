@@ -18,7 +18,7 @@ function PublishTool() {
             <BlurBox />
           </View>
           <OlFastImage
-            source={require('../static/publish.png')}
+            source={require('@/static/bottomBarIcons/publish.png')}
             style={styles.submitBtn}
           />
         </View>
