@@ -87,7 +87,7 @@ function NewsTypeChooseScreen() {
           ))}
         </Animated.View>
         <AnimatedOlFastImage
-          source={require('./static/publish.png')}
+          source={require('@/static/bottomBarIcons/publish.png')}
           style={[styles.close, animatedStyle]}
           onPress={cancelChoose}
         />

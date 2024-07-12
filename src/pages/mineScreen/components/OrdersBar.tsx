@@ -1,26 +1,8 @@
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
 import OlFastImage from '@/components/OlFastImage';
+import { mineTabs } from '@/mock';
 import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-const Tabs = [
-  {
-    desc: '待支付',
-    icon: require('@/common/static/wallet.png'),
-  },
-  {
-    desc: '进行中',
-    icon: require('@/common/static/ordering.png'),
-  },
-  {
-    desc: '待评价',
-    icon: require('@/common/static/rate.png'),
-  },
-  {
-    desc: '售后/退款',
-    icon: require('@/common/static/refund.png'),
-  },
-];
 
 function OrdersBar() {
   return (
@@ -37,10 +19,10 @@ function OrdersBar() {
         </View>
       </View>
       <View style={styles.toolsBar}>
-        {Tabs.map((item, index) => (
+        {mineTabs.map((item, index) => (
           <View style={styles.item} key={index}>
             <OlFastImage
-              source={item.icon}
+              source={{ uri: item.icon }}
               resizeMode="cover"
               style={styles.img}
             />

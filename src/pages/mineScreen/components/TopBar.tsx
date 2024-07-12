@@ -53,7 +53,7 @@ function TopBar() {
     <Animated.View style={[styles.container, { paddingTop: statusBarHeight }]}>
       <OlFastImage
         style={[{ width: iconWidth }, styles.icon]}
-        source={require('@/common/static/message.png')}
+        source={require('@/static/icons/message.png')}
         resizeMode="cover"
         onPress={bb}
       />
@@ -75,7 +75,7 @@ function TopBar() {
       </Animated.View>
       <OlFastImage
         style={[{ width: iconWidth }, styles.icon]}
-        source={require('@/common/static/setting.png')}
+        source={require('@/static/icons/setting.png')}
         resizeMode="cover"
         onPress={aa}
       />
