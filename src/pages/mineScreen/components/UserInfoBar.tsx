@@ -8,7 +8,6 @@ import Animated, {
 import { memo, useContext } from 'react';
 import { MineScreenContext } from '../utils/context';
 import OlFastImage from '@/components/OlFastImage';
-import { IP } from '@/mock/hostConfig';
 
 function UserInfoBar() {
   const { userInfoBarHeight } = useContext(MineScreenContext);
@@ -52,7 +51,7 @@ function UserInfoBar() {
         </View>
         <OlFastImage
           style={styles.genderIcon}
-          source={{ uri: `http://${IP}:7002/public/appAssets/icons/male.png` }}
+          source={{ uri: 'http://10.193.235.32:7002/public/appAssets/icons/male.png' }}
           resizeMode="cover"
         />
       </View>

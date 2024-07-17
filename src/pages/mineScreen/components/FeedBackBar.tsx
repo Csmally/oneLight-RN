@@ -1,7 +1,6 @@
 import { commonStyles } from '@/common/styles';
 import OlFastImage from '@/components/OlFastImage';
 import { StyleSheet, View, Text } from 'react-native';
-import { IP } from '@/mock/hostConfig';
 
 function FeedBackBar() {
   return (
@@ -14,7 +13,7 @@ function FeedBackBar() {
         <OlFastImage
           style={styles.icon}
           source={{
-            uri: `http://${IP}:7002/public/appAssets/icons/joinus.png`,
+            uri: 'http://10.193.235.32:7002/public/appAssets/icons/joinus.png',
           }}
         />
       </View>
@@ -25,7 +24,7 @@ function FeedBackBar() {
         </View>
         <OlFastImage
           style={styles.icon}
-          source={{ uri: `http://${IP}:7002/public/appAssets/icons/qa.png` }}
+          source={{ uri: 'http://10.193.235.32:7002/public/appAssets/icons/qa.png' }}
         />
       </View>
     </View>

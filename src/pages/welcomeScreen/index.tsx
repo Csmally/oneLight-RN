@@ -8,12 +8,11 @@ import BlurBox from '@/components/BluerBox';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
-import { IP } from '@/mock/hostConfig';
 
 const imgUrls = [
-  `http://${IP}:7002/public/imgs/big/1.jpg`,
-  `http://${IP}:7002/public/imgs/big/2.jpg`,
-  `http://${IP}:7002/public/imgs/big/9.jpg`,
+  'http://10.193.235.32:7002/public/imgs/big/1.jpg',
+  'http://10.193.235.32:7002/public/imgs/big/2.jpg',
+  'http://10.193.235.32:7002/public/imgs/big/9.jpg',
 ];
 function WelcomeScreen() {
   const { bottom } = useSafeAreaInsets();

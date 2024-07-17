@@ -1,8 +1,30 @@
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
 import OlFastImage from '@/components/OlFastImage';
-import { mineTabs } from 'mockData';
 import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+const ordersBarConf = [
+  {
+    desc: '待支付',
+    icon: 'http://10.193.235.32:7002/public/appAssets/icons/wallet.png',
+    type: 1,
+  },
+  {
+    desc: '进行中',
+    icon: 'http://10.193.235.32:7002/public/appAssets/icons/ordering.png',
+    type: 2,
+  },
+  {
+    desc: '待评价',
+    icon: 'http://10.193.235.32:7002/public/appAssets/icons/rate.png',
+    type: 3,
+  },
+  {
+    desc: '售后/退款',
+    icon: 'http://10.193.235.32:7002/public/appAssets/icons/refund.png',
+    type: 4,
+  },
+];
 
 function OrdersBar() {
   return (
@@ -19,7 +41,7 @@ function OrdersBar() {
         </View>
       </View>
       <View style={styles.toolsBar}>
-        {mineTabs.map((item, index) => (
+        {ordersBarConf.map((item, index) => (
           <View style={styles.item} key={index}>
             <OlFastImage
               source={{ uri: item.icon }}
