@@ -5,7 +5,7 @@ import Animated, { useAnimatedScrollHandler } from 'react-native-reanimated';
 import EmptyComponent from '@/components/EmptyComponent';
 import News from '@/components/News';
 import LoadMore from '@/components/LoadMore';
-import { homeNews } from '@/mock';
+import { homeNews } from 'mockData';
 import HomeHeaderActivity from './HomeHeaderActivity';
 import { FlashList } from '@shopify/flash-list';
 import { commonStyles } from '@/common/styles';

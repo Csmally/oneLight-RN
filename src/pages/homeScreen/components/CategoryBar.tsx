@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import CategoryItem from './CategoryItem';
 import { HomeScreenContext } from '../utils/context';
 import { FlatList } from 'react-native';
-import { homeTabs } from '@/mock';
+import { homeTabs } from 'mockData';
 
 function CategoryBar() {
   const {

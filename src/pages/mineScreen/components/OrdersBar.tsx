@@ -1,6 +1,6 @@
 import { commonStyles, getCommonShadowStyle } from '@/common/styles';
 import OlFastImage from '@/components/OlFastImage';
-import { mineTabs } from '@/mock';
+import { mineTabs } from 'mockData';
 import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
