@@ -1,6 +1,6 @@
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
-import https from './https';
+import https from './https/businessHttps';
 
 //设置全局工具方法、变量
 export const setGlobalTools = () => {

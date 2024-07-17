@@ -15,7 +15,7 @@ const ClientType: number =
 const baseURL =
   Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
 // 创建 Axios 实例
-const https = axios.create({
+const appConfigHttpsInstance = axios.create({
   baseURL: baseURL, // 设置基础URL，用于所有请求
   timeout: 5000, // 设置请求超时时间，单位是毫秒
   headers: {
@@ -30,7 +30,7 @@ const https = axios.create({
 });
 
 // 使用拦截器（interceptor）配置请求和响应
-https.interceptors.request.use(
+appConfigHttpsInstance.interceptors.request.use(
   config => {
     const headers = config.headers;
     // 添加强认证
@@ -44,7 +44,7 @@ https.interceptors.request.use(
   },
 );
 
-https.interceptors.response.use(
+appConfigHttpsInstance.interceptors.response.use(
   response => {
     // 对响应数据做一些处理
     return response.data;
@@ -68,7 +68,7 @@ https.interceptors.response.use(
 // 设置https请求头，添加设备ID
 (async () => {
   const deviceId = (await getUniqueId()) ?? '';
-  https.defaults.headers['deviceId'] = deviceId;
+  appConfigHttpsInstance.defaults.headers['deviceId'] = deviceId;
 })();
 
-export default https; // 导出 Axios 实例
+export default appConfigHttpsInstance;

@@ -1,17 +1,16 @@
 import { TouchableOpacity, View, Text } from 'react-native';
-import https from '@/utils/https';
 import React from 'react';
 import RootView from '@/components/RootView';
 import { useScreenNavigation } from '@/utils/hooks';
 
 function MarketScreen() {
   const tt1 = async () => {
-    const res = await https.get('/test/a?value=2');
-    Toast.show(res.data.message);
+    const msg = 'aa'
+    Toast.show(msg);
   };
   const tt2 = async () => {
-    const res = await https.get('/test/a?value=3');
-    Toast.show(res.data.message);
+    const msg = 'bb'
+    Toast.show(msg);
   };
   const navigation = useScreenNavigation();
   const tt3 = () => {

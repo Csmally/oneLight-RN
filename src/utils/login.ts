@@ -1,7 +1,7 @@
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { apiLogin } from '@/services/login';
 import Storage from '@/storage';
-import https from './https';
+import https from './https/businessHttps';
 
 /**
  * 登录方法
