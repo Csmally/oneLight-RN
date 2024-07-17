@@ -1,5 +1,5 @@
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
-import { apiLogin } from '@/services/login';
+import { apiLogin } from '@/services/loginService';
 import Storage from '@/storage';
 import https from './https/businessHttps';
 

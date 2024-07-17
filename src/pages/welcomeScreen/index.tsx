@@ -8,19 +8,17 @@ import BlurBox from '@/components/BluerBox';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
+import { useRecoilValue } from 'recoil';
+import { appGlobalConfigsStore } from '@/store';
 
-const imgUrls = [
-  'http://192.168.110.6:7002/public/imgs/big/1.jpg',
-  'http://192.168.110.6:7002/public/imgs/big/2.jpg',
-  'http://192.168.110.6:7002/public/imgs/big/9.jpg',
-];
 function WelcomeScreen() {
+  const { launchScreenImgs } = useRecoilValue(appGlobalConfigsStore);
   const { bottom } = useSafeAreaInsets();
   Storage.set(STORAGE_KEYS.BOTTOM_SAFEAREA, bottom);
   const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (activeIndex === imgUrls.length - 1) {
+      if (activeIndex === launchScreenImgs.length - 1) {
         setActiveIndex(0);
       } else {
         setActiveIndex(activeIndex + 1);
@@ -29,13 +27,16 @@ function WelcomeScreen() {
     return () => {
       clearInterval(timer);
     };
-  }, [activeIndex]);
+  }, [activeIndex, launchScreenImgs.length]);
   return (
     <RootView>
-      <OpacitySwiper activeIndex={activeIndex} imgUrls={imgUrls} />
+      <OpacitySwiper activeIndex={activeIndex} imgUrls={launchScreenImgs} />
       <View style={styles.container}>
         <BlurBox />
-        <PageCounter total={imgUrls.length} activeIndex={activeIndex} />
+        <PageCounter
+          total={launchScreenImgs.length}
+          activeIndex={activeIndex}
+        />
         <SloganTab bottomSafeArea={bottom} />
       </View>
     </RootView>

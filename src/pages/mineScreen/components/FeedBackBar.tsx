@@ -13,7 +13,7 @@ function FeedBackBar() {
         <OlFastImage
           style={styles.icon}
           source={{
-            uri: 'http://10.193.235.32:7002/public/appAssets/icons/joinus.png',
+            uri: 'http://10.193.235.32:7005/public/appAssets/icons/joinus.png',
           }}
         />
       </View>
@@ -24,7 +24,9 @@ function FeedBackBar() {
         </View>
         <OlFastImage
           style={styles.icon}
-          source={{ uri: 'http://10.193.235.32:7002/public/appAssets/icons/qa.png' }}
+          source={{
+            uri: 'http://10.193.235.32:7005/public/appAssets/icons/qa.png',
+          }}
         />
       </View>
     </View>

@@ -1,7 +1,3 @@
-import { createContext, useContext } from 'react';
+import appGlobalConfigsStore from './modules/appGlobalConfigs';
 
-export const stores = {};
-
-export const StoreContext = createContext(stores);
-
-export const useStores = () => useContext(StoreContext);
+export { appGlobalConfigsStore };

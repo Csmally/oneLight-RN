@@ -1,23 +1,17 @@
-import { apiVersion, appVersion } from '@/common/consts';
+import { apiVersion, appVersion, clientTypes } from '@/common/consts';
 import axios from 'axios';
 import { Platform } from 'react-native';
 import { getUniqueId, getBrand } from 'react-native-device-info';
 
-const httpsSecretKey = 'oneLight';
-const ClientTypes = {
-  ios: 1,
-  android: 2,
-  web: 3,
-};
 const ClientType: number =
-  ClientTypes[Platform.OS as 'ios' | 'android' | 'web'];
+  clientTypes[Platform.OS as 'ios' | 'android' | 'web'];
 
-const baseURL =
-  Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
+const baseURL = 'http://192.168.110.6:7002';
+
 // 创建 Axios 实例
 const businessHttpsInstance = axios.create({
   baseURL: baseURL, // 设置基础URL，用于所有请求
-  timeout: 5000, // 设置请求超时时间，单位是毫秒
+  timeout: 10000, // 设置请求超时时间，单位是毫秒
   headers: {
     'Content-Type': 'application/json', // 设置请求头
     'Ol-Agent-Type': 'oneLight-APP', // 设置应用来源类型

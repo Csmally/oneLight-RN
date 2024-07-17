@@ -44,7 +44,6 @@ interface ResponseType {
   code: number;
   data: any;
   message: string;
-  path?: string;
 }
 
 type ToastType = {

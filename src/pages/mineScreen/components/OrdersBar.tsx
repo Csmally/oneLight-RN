@@ -6,22 +6,22 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const ordersBarConf = [
   {
     desc: '待支付',
-    icon: 'http://10.193.235.32:7002/public/appAssets/icons/wallet.png',
+    icon: 'http://10.193.235.32:7005/public/appAssets/icons/wallet.png',
     type: 1,
   },
   {
     desc: '进行中',
-    icon: 'http://10.193.235.32:7002/public/appAssets/icons/ordering.png',
+    icon: 'http://10.193.235.32:7005/public/appAssets/icons/ordering.png',
     type: 2,
   },
   {
     desc: '待评价',
-    icon: 'http://10.193.235.32:7002/public/appAssets/icons/rate.png',
+    icon: 'http://10.193.235.32:7005/public/appAssets/icons/rate.png',
     type: 3,
   },
   {
     desc: '售后/退款',
-    icon: 'http://10.193.235.32:7002/public/appAssets/icons/refund.png',
+    icon: 'http://10.193.235.32:7005/public/appAssets/icons/refund.png',
     type: 4,
   },
 ];

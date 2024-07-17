@@ -51,7 +51,9 @@ function UserInfoBar() {
         </View>
         <OlFastImage
           style={styles.genderIcon}
-          source={{ uri: 'http://10.193.235.32:7002/public/appAssets/icons/male.png' }}
+          source={{
+            uri: 'http://10.193.235.32:7005/public/appAssets/icons/male.png',
+          }}
           resizeMode="cover"
         />
       </View>

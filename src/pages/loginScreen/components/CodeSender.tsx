@@ -8,7 +8,7 @@ import {
   Text,
 } from 'react-native';
 import { commonStyles } from '@/common/styles';
-import { apiGetMsgCode } from '@/services/login';
+import { apiGetMsgCode } from '@/services/loginService';
 
 type CodeSenderProps = {
   mobile: string;
