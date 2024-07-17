@@ -1,7 +1,6 @@
 import { createContext, useContext } from 'react';
-import RouterTypetore from './modules/routerType';
 
-export const stores = { RouterTypetore };
+export const stores = {};
 
 export const StoreContext = createContext(stores);
 

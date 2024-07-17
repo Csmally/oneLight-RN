@@ -10,9 +10,9 @@ import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 
 const imgUrls = [
-  'http://10.193.235.32:7002/public/imgs/big/1.jpg',
-  'http://10.193.235.32:7002/public/imgs/big/2.jpg',
-  'http://10.193.235.32:7002/public/imgs/big/9.jpg',
+  'http://192.168.110.6:7002/public/imgs/big/1.jpg',
+  'http://192.168.110.6:7002/public/imgs/big/2.jpg',
+  'http://192.168.110.6:7002/public/imgs/big/9.jpg',
 ];
 function WelcomeScreen() {
   const { bottom } = useSafeAreaInsets();
