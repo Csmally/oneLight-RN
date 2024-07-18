@@ -9,9 +9,7 @@ import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { commonStyles } from '@/common/styles';
 import { useEffect, useState } from 'react';
-import { apiGetGlobalConfigs } from '@/services/globalConfigService';
-import { useSetRecoilState } from 'recoil';
-import { appGlobalConfigsStore } from '@/store';
+import { useSetAppGlobalConfigs } from '@/utils/hooks/appGlobalConfigs';
 
 // 顶级根路由栈
 const Stack = createNativeStackNavigator();
@@ -19,22 +17,12 @@ const Stack = createNativeStackNavigator();
 const BottomTabNavigator = createBottomTabNavigator();
 
 function App() {
-  // 获取全局配置信息dispatch
-  const setAppGlobalConfigs = useSetRecoilState(appGlobalConfigsStore);
-  const [loading, setLoading] = useState(true);
+  // 设置APP全局配置
+  const { loading } = useSetAppGlobalConfigs();
+  // APP是否加载完毕
   const [appReady, setAppReady] = useState(false);
+  // 判断是否第一次启动APP
   const isLoadedApp = Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP) ?? false;
-  // 加载全局配置
-  useEffect(() => {
-    const fetchAppGlobalConfigs = async () => {
-      const { data, success } = await apiGetGlobalConfigs();
-      if (success) {
-        setAppGlobalConfigs(data);
-        setLoading(false);
-      }
-    };
-    fetchAppGlobalConfigs();
-  }, [setAppGlobalConfigs]);
   // 关闭启动屏
   useEffect(() => {
     if (!loading && appReady) {
