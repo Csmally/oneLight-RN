@@ -1,10 +1,10 @@
-import { apiVersion, appVersion, clientTypes } from '@/common/consts';
+import { ApiVersion, AppVersion, ClientTypes } from '@/common/consts';
 import axios from 'axios';
 import { Platform } from 'react-native';
 import { getUniqueId, getBrand } from 'react-native-device-info';
 
 const ClientType: number =
-  clientTypes[Platform.OS as 'ios' | 'android' | 'web'];
+  ClientTypes[Platform.OS as 'ios' | 'android' | 'web'];
 
 const baseURL = 'http://192.168.110.6:7002';
 
@@ -18,8 +18,8 @@ const businessHttpsInstance = axios.create({
     'Ol-Client-Type': ClientType ?? '-1', // 客户端系统OS
     'Ol-Client-Version': Platform.Version ?? '', // 客户端系统版本号
     'Ol-Client-Brand': getBrand(),
-    'Ol-App-Version': `${appVersion.major}.${appVersion.minor}.${appVersion.patch}`, // oneLight应用APP版本号
-    'Ol-Api-Version': `${apiVersion.major}.${apiVersion.minor}.${apiVersion.patch}`, // oneLight应用API版本号
+    'Ol-App-Version': `${AppVersion.major}.${AppVersion.minor}.${AppVersion.patch}`, // oneLight应用APP版本号
+    'Ol-Api-Version': `${ApiVersion.major}.${ApiVersion.minor}.${ApiVersion.patch}`, // oneLight应用API版本号
   },
 });
 

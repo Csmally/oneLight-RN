@@ -1,7 +1,7 @@
 /**
  * APP版本号
  */
-const appVersion = {
+const AppVersion = {
   major: 1,
   minor: 0,
   patch: 0,
@@ -10,7 +10,7 @@ const appVersion = {
 /**
  * API版本号
  */
-const apiVersion = {
+const ApiVersion = {
   major: 1,
   minor: 0,
   patch: 0,
@@ -19,7 +19,7 @@ const apiVersion = {
 /**
  * 客户端类型
  */
-const clientTypes = {
+const ClientTypes = {
   ios: 1,
   android: 2,
   web: 3,
@@ -31,4 +31,4 @@ const DeviceInfo = {
   DEFAULT_BOTTOM_SAFEAREA: 50, // 默认底部安全距离
 };
 
-export { appVersion, apiVersion, DeviceInfo, clientTypes };
+export { AppVersion, ApiVersion, DeviceInfo, ClientTypes };
