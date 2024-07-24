@@ -2,9 +2,22 @@ import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { businessRequest } from './request';
 import { getUniqueId } from 'react-native-device-info';
+import { requestConfigObObj } from './observeObjs';
 
-//设置全局工具方法、变量
-export const setGlobalTools = () => {
+// 初始化基础配置信息
+export const initBaseConfigs = async () => {
+  // 获取设备ID：deviceId
+  let deviceId;
+  try {
+    deviceId = await getUniqueId();
+  } catch (error) {
+    deviceId = UnknownValue;
+  }
+  requestConfigObObj.deviceId = deviceId;
+};
+
+// 初始化全局工具方法
+export const initGlobalTools = () => {
   // 全局Toast工具
   Toast = {
     show: message => {
@@ -13,7 +26,7 @@ export const setGlobalTools = () => {
   };
 };
 
-//初始化storage数据
+// 初始化storage数据
 export const initStorageData = async () => {
   // 获取设备ID：deviceId
   let deviceId;

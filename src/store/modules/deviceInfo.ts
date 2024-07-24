@@ -18,7 +18,6 @@ const defaultData: DeviceInfoType = {
   windowHeight: 0,
   windowFontScale: 0,
   windowScale: 0,
-  deviceId: '',
 };
 
 const deviceInfoStore = atom({

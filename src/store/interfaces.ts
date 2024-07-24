@@ -22,7 +22,6 @@ interface DeviceInfoType {
   windowHeight: number;
   windowFontScale: number;
   windowScale: number;
-  deviceId: string;
 }
 
 export type { AppGlobalConfigsType, DeviceInfoType };

@@ -1,6 +1,10 @@
 import RootView from '@/components/RootView';
 import { deviceInfoStore } from '@/store';
-import { initStorageData, setGlobalTools } from '@/utils/loadAppTools';
+import {
+  initStorageData,
+  initGlobalTools,
+  initBaseConfigs,
+} from '@/utils/loadAppTools';
 import { useEffect, useLayoutEffect } from 'react';
 import { Dimensions, Text } from 'react-native';
 import {
@@ -51,18 +55,30 @@ function MainView({ setInitCompleted }: WaitingInitScreenProps) {
       windowHeight,
       windowFontScale,
       windowScale,
-      deviceId: '',
     }));
   }, [safeBottom, safeLeft, safeRight, safeTop, setDeviceInfo]);
   useEffect(() => {
-    // 设置全局方法
-    setGlobalTools();
-    // 初始化本地storage
-    initStorageData();
-    // 关闭初始化屏幕
-    setInitCompleted(true);
-    SplashScreen.hide();
+    const init = async () => {
+      /**
+       * 初始化基础信息信息
+       *
+       * 警告：
+       * initBaseConfigs方法 “必须” 在所有涉及网络请求方法之前调用！！！
+       */
+      await initBaseConfigs();
+      // 初始化本地storage
+      initStorageData();
+      // 初始化全局方法
+      initGlobalTools();
+      // 关闭初始化屏幕
+      setInitCompleted(true);
+    };
+    init();
   }, [setInitCompleted]);
+  useEffect(() => {
+    // 关闭启动屏幕
+    SplashScreen.hide();
+  }, []);
   return (
     <RootView style={{ height: 891.42, backgroundColor: 'pink' }}>
       <Text>黄金时代可根据第三方库接口立刻叫孤苦伶仃南方那边</Text>

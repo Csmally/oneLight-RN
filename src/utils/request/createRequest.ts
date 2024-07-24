@@ -1,6 +1,4 @@
 import { ApiVersion, AppVersion, ClientTypes } from '@/common/consts';
-import { STORAGE_KEYS } from '@/interfaces/commonEnum';
-import Storage from '@/storage';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Platform } from 'react-native';
 import { getBrand } from 'react-native-device-info';
@@ -31,14 +29,11 @@ const createRequest = ({
   timeout = 10000,
   headers,
 }: RequestOptions): AxiosInstance => {
-  // 获取设备ID：deviceId
-  const deviceId = Storage.getString(STORAGE_KEYS.DEVICEID);
-  // console.log('9898deviceId', deviceId);
   // 创建axios实例
   const request = axios.create({
     baseURL, // 设置基础URL，用于所有请求
     timeout, // 设置请求超时时间，单位是毫秒
-    headers: { ...defaultHeaders, ...headers, 'Ol-DeviceId': deviceId },
+    headers: { ...defaultHeaders, ...headers },
   });
 
   // 使用拦截器（interceptor）配置请求和响应
