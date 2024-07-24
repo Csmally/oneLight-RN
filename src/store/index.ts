@@ -1,3 +1,4 @@
 import appGlobalConfigsStore from './modules/appGlobalConfigs';
+import deviceInfoStore from './modules/deviceInfo';
 
-export { appGlobalConfigsStore };
+export { appGlobalConfigsStore, deviceInfoStore };

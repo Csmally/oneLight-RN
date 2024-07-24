@@ -1,15 +1,15 @@
-import { appConfigHttpsInstance } from '@/utils/https';
+import { appConfigRequest } from '@/utils/request';
 
 /**
  * 获取APP应用全局配置信息
  */
 export const apiGetGlobalConfigs = (): Promise<ResponseType> => {
-  return appConfigHttpsInstance.get('/globalAppConfig');
+  return appConfigRequest.get('/globalAppConfig');
 };
 
 /**
  * 获取AB实验规则
  */
 export const apiGetABTestRules = (): Promise<ResponseType> => {
-  return appConfigHttpsInstance.get('/abTestRules');
+  return appConfigRequest.get('/abTestRules');
 };

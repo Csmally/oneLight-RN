@@ -5,17 +5,21 @@
 import { AppRegistry } from 'react-native';
 import App from './App';
 import { name as appName } from './app.json';
-import { setGlobalTools, initStorageData } from '@/utils/loadAppTools';
 import { RecoilRoot } from 'recoil';
+import { useState } from 'react';
+import WaitingInitScreen from './WaitingInitScreen';
 
 const AppRoot = function () {
+  const [initCompleted, setInitCompleted] = useState(false);
   return (
     <RecoilRoot>
-      <App />
+      {initCompleted ? (
+        <App />
+      ) : (
+        <WaitingInitScreen setInitCompleted={setInitCompleted} />
+      )}
     </RecoilRoot>
   );
 };
 
-setGlobalTools();
-initStorageData();
 AppRegistry.registerComponent(appName, () => AppRoot);

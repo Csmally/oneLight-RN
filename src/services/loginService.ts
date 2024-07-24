@@ -1,10 +1,10 @@
-import { businessHttpsInstance } from '@/utils/https';
+import { businessRequest } from '@/utils/request';
 
 /**
  * 获取验证码
  */
 export const apiGetMsgCode = (mobile: string): Promise<ResponseType> => {
-  return businessHttpsInstance.get('/login/msgCode', { params: { mobile } });
+  return businessRequest.get('/login/msgCode', { params: { mobile } });
 };
 
 /**
@@ -14,5 +14,5 @@ export const apiLogin = (
   mobile: string,
   msgCode: string,
 ): Promise<ResponseType> => {
-  return businessHttpsInstance.post('login/signIn', { mobile, msgCode });
+  return businessRequest.post('login/signIn', { mobile, msgCode });
 };

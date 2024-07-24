@@ -1,6 +1,7 @@
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
-import https from './https/businessHttps';
+import { businessRequest } from './request';
+import { getUniqueId } from 'react-native-device-info';
 
 //设置全局工具方法、变量
 export const setGlobalTools = () => {
@@ -13,13 +14,21 @@ export const setGlobalTools = () => {
 };
 
 //初始化storage数据
-export const initStorageData = () => {
+export const initStorageData = async () => {
+  // 获取设备ID：deviceId
+  let deviceId;
+  try {
+    deviceId = await getUniqueId();
+  } catch (error) {
+    deviceId = UnknownValue;
+  }
+  Storage.set(STORAGE_KEYS.DEVICEID, deviceId);
   // 初始化登录状态
   const loginStatus = Storage.getBoolean(STORAGE_KEYS.LOGIN_STATUS);
   if (loginStatus) {
     const Authorization = Storage.getString(STORAGE_KEYS.TOKEN);
     const uid = Storage.getString(STORAGE_KEYS.UID);
-    https.defaults.headers.common = { Authorization, uid };
+    businessRequest.defaults.headers.common = { Authorization, uid };
     Storage.set(STORAGE_KEYS.LOGIN_STATUS, true);
   } else {
     Storage.set(STORAGE_KEYS.LOGIN_STATUS, false);

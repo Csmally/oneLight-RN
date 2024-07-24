@@ -1,3 +1,6 @@
+/**
+ * APP全局配置信息
+ */
 import { atom } from 'recoil';
 import { AppGlobalConfigsType } from '../interfaces';
 import storeKeys from '../storeKeys';

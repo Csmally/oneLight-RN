@@ -9,4 +9,20 @@ interface AppGlobalConfigsType {
   homeQuickSearchBar: HomeQuickSearchBarItem[];
 }
 
-export type { AppGlobalConfigsType };
+interface DeviceInfoType {
+  safeTop: number;
+  safeBottom: number;
+  safeLeft: number;
+  safeRight: number;
+  screenWidth: number;
+  screenHeight: number;
+  screenFontScale: number;
+  screenScale: number;
+  windowWidth: number;
+  windowHeight: number;
+  windowFontScale: number;
+  windowScale: number;
+  deviceId: string;
+}
+
+export type { AppGlobalConfigsType, DeviceInfoType };

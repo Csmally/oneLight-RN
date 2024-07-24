@@ -1,7 +1,7 @@
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { apiLogin } from '@/services/loginService';
 import Storage from '@/storage';
-import https from './https/businessHttps';
+import { businessRequest } from './request';
 
 /**
  * 登录方法
@@ -17,7 +17,7 @@ const login = async (mobile: string, msgCode: string) => {
   Storage.set(STORAGE_KEYS.TOKEN, Authorization);
   Storage.set(STORAGE_KEYS.UID, uid);
   Storage.set(STORAGE_KEYS.LOGIN_STATUS, true);
-  https.defaults.headers.common = { Authorization, uid };
+  businessRequest.defaults.headers.common = { Authorization, uid };
   const isLoadedApp = Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP) ?? false;
   if (!isLoadedApp) {
     Storage.set(STORAGE_KEYS.IS_LOADEDAPP, !isLoadedApp);
@@ -32,7 +32,7 @@ const logout = () => {
   console.log('9898退出登录');
   Storage.set(STORAGE_KEYS.LOGIN_STATUS, false);
   Storage.set(STORAGE_KEYS.IS_LOADEDAPP, false);
-  https.defaults.headers.common = {};
+  businessRequest.defaults.headers.common = {};
 };
 
 export { login, logout };
