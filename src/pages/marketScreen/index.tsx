@@ -5,11 +5,11 @@ import { useScreenNavigation } from '@/utils/hooks';
 
 function MarketScreen() {
   const tt1 = async () => {
-    const msg = 'aa'
+    const msg = 'aa';
     Toast.show(msg);
   };
   const tt2 = async () => {
-    const msg = 'bb'
+    const msg = 'bb';
     Toast.show(msg);
   };
   const navigation = useScreenNavigation();
