@@ -102,6 +102,10 @@ function MainView() {
   // 初始化APP必要设置
   useEffect(() => {
     const init = async () => {
+      // 初始化全局方法
+      initGlobalTools();
+      // 初始化本地storage
+      initStorageData();
       /**
        * 初始化基础信息信息
        *
@@ -113,10 +117,6 @@ function MainView() {
       if (success) {
         setAppGlobalConfigs(data);
       }
-      // 初始化本地storage
-      initStorageData();
-      // 初始化全局方法
-      initGlobalTools();
       setInitCompleted(true);
     };
     init();

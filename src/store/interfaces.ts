@@ -24,4 +24,8 @@ interface DeviceInfoType {
   windowScale: number;
 }
 
-export type { AppGlobalConfigsType, DeviceInfoType };
+interface UserInfoType {
+  
+}
+
+export type { AppGlobalConfigsType, DeviceInfoType, UserInfoType };

@@ -15,7 +15,7 @@ const BottomTabNavigator = createBottomTabNavigator();
 
 function App() {
   // 判断是否第一次启动APP
-  const isLoadedApp = Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP) ?? false;
+  const isLoadedApp = !!Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP);
   return (
     <NavigationContainer>
       <Stack.Navigator
