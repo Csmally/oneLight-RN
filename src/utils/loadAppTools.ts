@@ -27,15 +27,7 @@ export const initGlobalTools = () => {
 };
 
 // 初始化storage数据
-export const initStorageData = async () => {
-  // 获取设备ID：deviceId
-  let deviceId;
-  try {
-    deviceId = await getUniqueId();
-  } catch (error) {
-    deviceId = UnknownValue;
-  }
-  Storage.set(STORAGE_KEYS.DEVICEID, deviceId);
+export const initStorageData = () => {
   // 初始化登录状态
   const loginStatus = Storage.getBoolean(STORAGE_KEYS.LOGIN_STATUS);
   if (loginStatus) {
