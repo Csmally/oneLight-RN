@@ -57,6 +57,4 @@ function CategoryBar() {
   );
 }
 
-CategoryBar.displayName = 'CategoryBar';
-
 export default CategoryBar;

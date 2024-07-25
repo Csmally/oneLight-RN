@@ -1,5 +1,4 @@
 import { NavigationContainer } from '@react-navigation/native';
-import SplashScreen from 'react-native-splash-screen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomTabBar from '@/components/BottomTabBar';
@@ -8,8 +7,6 @@ import { PATH } from '@/interfaces/commonEnum';
 import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { commonStyles } from '@/common/styles';
-import { useEffect, useState } from 'react';
-import { useSetAppGlobalConfigs } from '@/utils/hooks/appGlobalConfigs';
 
 // 顶级根路由栈
 const Stack = createNativeStackNavigator();
@@ -17,23 +14,10 @@ const Stack = createNativeStackNavigator();
 const BottomTabNavigator = createBottomTabNavigator();
 
 function App() {
-  // 设置APP全局配置
-  const { loading } = useSetAppGlobalConfigs();
-  // APP是否加载完毕
-  const [appReady, setAppReady] = useState(false);
   // 判断是否第一次启动APP
   const isLoadedApp = Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP) ?? false;
-  // 关闭启动屏
-  useEffect(() => {
-    if (!loading && appReady) {
-      SplashScreen.hide();
-    }
-  }, [appReady, loading]);
-  const onAppReady = () => {
-    setAppReady(true);
-  };
   return (
-    <NavigationContainer onReady={onAppReady}>
+    <NavigationContainer>
       <Stack.Navigator
         initialRouteName={isLoadedApp ? PATH.MAIN_SCREEN : PATH.WELCOME_SCREEN}
         screenOptions={{

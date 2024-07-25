@@ -1,10 +1,10 @@
 import createRequest from './createRequest';
 
-const businessRequest = createRequest({ baseURL: 'http://192.168.110.6:7002' });
+const businessRequest = createRequest({ baseURL: 'http://10.193.235.32:7002' });
 const appConfigRequest = createRequest({
-  baseURL: 'http://192.168.110.6:7001',
+  baseURL: 'http://10.193.235.32:7001',
 });
-const trackRequest = createRequest({ baseURL: 'http://192.168.110.6:7003' });
+const trackRequest = createRequest({ baseURL: 'http://10.193.235.32:7003' });
 
 export { businessRequest, appConfigRequest, trackRequest };
 

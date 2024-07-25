@@ -19,6 +19,7 @@ const commonStyles = {
   topBarFontSize: 18,
   pageBorderGap: 10,
   headerBgColor: '#F6F8F9',
+  maskColor: 'rgba(0, 0, 0, 0.4)',
   transparentHeaderBg: {
     backgroundColor: Platform.OS === 'ios' ? 'transparent' : '#F6F8F9',
   },

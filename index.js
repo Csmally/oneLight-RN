@@ -7,16 +7,16 @@ import App from './App';
 import { name as appName } from './app.json';
 import { RecoilRoot } from 'recoil';
 import { useState } from 'react';
-import WaitingInitScreen from './WaitingInitScreen';
+import AppWaitingScreen from './AppWaitingScreen';
 
 const AppRoot = function () {
-  const [initCompleted, setInitCompleted] = useState(false);
+  const [endInit, setEndInit] = useState(false);
   return (
     <RecoilRoot>
-      {initCompleted ? (
+      {endInit ? (
         <App />
       ) : (
-        <WaitingInitScreen setInitCompleted={setInitCompleted} />
+          <AppWaitingScreen setEndInit={setEndInit}/>
       )}
     </RecoilRoot>
   );

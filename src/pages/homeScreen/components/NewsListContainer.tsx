@@ -55,6 +55,4 @@ const NewsListContainer = forwardRef((props, ref) => {
   );
 });
 
-NewsListContainer.displayName = 'NewsListContainer';
-
 export default NewsListContainer;
