@@ -25,11 +25,12 @@ export const initBaseConfigs = async () => {
 // 初始化全局工具方法
 export const initGlobalTools = () => {
   // 全局Toast工具
-  Toast = {
+  global.Toast = {
     show: message => {
       console.log('提示框', message);
     },
   };
+  global.UnknownValue = 'unknown';
 };
 
 // 初始化storage数据

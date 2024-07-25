@@ -7,8 +7,21 @@ import {
   initGlobalTools,
   initBaseConfigs,
 } from '@/utils/loadAppTools';
-import { createContext, useContext, useEffect, useLayoutEffect, useState } from 'react';
-import { ActivityIndicator, Dimensions, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react';
+import {
+  ActivityIndicator,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
@@ -44,9 +57,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const defaultAppWaitingScreenCtx: AppWaitingScreenCtxType = { setEndInit: () => {} };
+const defaultAppWaitingScreenCtx: AppWaitingScreenCtxType = {
+  setEndInit: () => {},
+};
 
-const AppWaitingScreenCtx = createContext<AppWaitingScreenCtxType>(defaultAppWaitingScreenCtx);
+const AppWaitingScreenCtx = createContext<AppWaitingScreenCtxType>(
+  defaultAppWaitingScreenCtx,
+);
 
 function MainView() {
   const { setEndInit } = useContext(AppWaitingScreenCtx);
@@ -158,14 +175,18 @@ function MainView() {
   return (
     <RootView style={styles.container}>
       <TouchableWithoutFeedback onPress={leaveWaitScreen}>
-        <View style={[styles.leave, { top: safeTop, right: commonStyles.pageBorderGap }]}>
+        <View
+          style={[
+            styles.leave,
+            { top: safeTop, right: commonStyles.pageBorderGap },
+          ]}>
           <Text style={styles.timerTxt}>
             {second}
             <Text> 跳过</Text>
           </Text>
         </View>
       </TouchableWithoutFeedback>
-      <ActivityIndicator color={'#000000'} size={'large'}/>
+      <ActivityIndicator color={'#000000'} size={'large'} />
     </RootView>
   );
 }

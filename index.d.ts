@@ -50,4 +50,4 @@ type ToastType = {
   show: (message: string) => void;
 };
 declare var Toast: ToastType;
-declare var UnknownValue: 'unknown';
+declare var UnknownValue: string;
