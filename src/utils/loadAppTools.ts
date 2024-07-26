@@ -7,6 +7,7 @@ import { defaultStorageLoginStatus } from '@/store/modules/storageLoginStatus';
 
 // 初始化基础配置信息
 export const initBaseConfigs = async () => {
+  // 设置request请求头参数
   const loginStatus: StorageLoginStatusType = Storage.getObject(STORAGE_KEYS.LOGIN_STATUS) || defaultStorageLoginStatus;
   const { isLogin, uid, authorization, deviceId } = loginStatus;
   requestConfigObObj.uid = uid;
