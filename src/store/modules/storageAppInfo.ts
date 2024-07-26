@@ -3,11 +3,11 @@ import Storage from '@/storage';
 import { atom, AtomEffect } from 'recoil';
 import storeKeys from '../storeKeys';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
-import { AppInfoStorageType } from '../interfaces';
+import { StorageAppInfoType } from '../interfaces';
 
-const defaultData: AppInfoStorageType = { appIsLoaded: false };
+const defaultData: StorageAppInfoType = { appIsLoaded: false };
 
-const mmkvEffect: (key: string) => AtomEffect<AppInfoStorageType> =
+const mmkvEffect: (key: string) => AtomEffect<StorageAppInfoType> =
   key =>
   ({ setSelf, onSet }: { setSelf: any; onSet: any }) => {
     setSelf(() => {
@@ -22,8 +22,8 @@ const mmkvEffect: (key: string) => AtomEffect<AppInfoStorageType> =
 
     onSet(
       (
-        newValue: AppInfoStorageType,
-        oldValue: AppInfoStorageType,
+        newValue: StorageAppInfoType,
+        oldValue: StorageAppInfoType,
         isReset: boolean,
       ) => {
         if (isReset) {

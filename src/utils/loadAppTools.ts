@@ -2,24 +2,30 @@ import Storage from '@/storage';
 import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { getUniqueId } from 'react-native-device-info';
 import { requestConfigObObj } from './observeObjs';
+import { StorageLoginStatusType } from '@/store/interfaces';
+import { defaultStorageLoginStatus } from '@/store/modules/storageLoginStatus';
 
 // 初始化基础配置信息
 export const initBaseConfigs = async () => {
-  // 设置获取设备ID：deviceId
-  let deviceId;
-  try {
-    deviceId = await getUniqueId();
-  } catch (error) {
-    deviceId = UnknownValue;
-  }
-  requestConfigObObj.deviceId = deviceId;
-  // 设置Authorization & Uid
-  const loginStatus = Storage.getBoolean(STORAGE_KEYS.LOGIN_STATUS);
-  const Authorization = Storage.getString(STORAGE_KEYS.TOKEN) || UnknownValue;
-  const uid = Storage.getString(STORAGE_KEYS.UID) || UnknownValue;
-  requestConfigObObj.authorization = Authorization;
+  const loginStatus: StorageLoginStatusType = Storage.getObject(STORAGE_KEYS.LOGIN_STATUS) || defaultStorageLoginStatus;
+  const { isLogin, uid, authorization, deviceId } = loginStatus;
   requestConfigObObj.uid = uid;
-  Storage.set(STORAGE_KEYS.LOGIN_STATUS, !!loginStatus);
+  requestConfigObObj.authorization = authorization;
+  let reDeviceId;
+  if (isLogin) {
+    reDeviceId = deviceId;
+  } else {
+    // 获取并设置设备ID：deviceId
+    try {
+      reDeviceId = await getUniqueId();
+    } catch (error) {
+      reDeviceId = UnknownValue;
+    }
+  }
+  requestConfigObObj.deviceId = reDeviceId;
+  const resLoginStatus: StorageLoginStatusType = { ...defaultStorageLoginStatus, ...loginStatus, deviceId: reDeviceId };
+  Storage.set(STORAGE_KEYS.LOGIN_STATUS, JSON.stringify(resLoginStatus));
+  return { loginStatus: resLoginStatus };
 };
 
 // 初始化全局工具方法

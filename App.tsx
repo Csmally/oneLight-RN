@@ -4,9 +4,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomTabBar from '@/components/BottomTabBar';
 import { AppPaths, RootMainPaths } from '@/pages/screensMap';
 import { PATH } from '@/interfaces/commonEnum';
-import Storage from '@/storage';
-import { STORAGE_KEYS } from '@/interfaces/commonEnum';
 import { commonStyles } from '@/common/styles';
+import { useRecoilValue } from 'recoil';
+import { storageAppInfoStore } from '@/store';
+import { useLayoutEffect, useState } from 'react';
 
 // 顶级根路由栈
 const Stack = createNativeStackNavigator();
@@ -14,12 +15,15 @@ const Stack = createNativeStackNavigator();
 const BottomTabNavigator = createBottomTabNavigator();
 
 function App() {
-  // 判断是否第一次启动APP
-  const isLoadedApp = !!Storage.getBoolean(STORAGE_KEYS.IS_LOADEDAPP);
+  const [loadedApp, setLoadedApp] = useState(false); // 是否启动并登陆过APP
+  const { appIsLoaded } = useRecoilValue(storageAppInfoStore);
+  useLayoutEffect(() => {
+    setLoadedApp(appIsLoaded);
+  }, [appIsLoaded]);
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={isLoadedApp ? PATH.MAIN_SCREEN : PATH.WELCOME_SCREEN}
+        initialRouteName={loadedApp ? PATH.MAIN_SCREEN : PATH.WELCOME_SCREEN}
         screenOptions={{
           statusBarTranslucent: true,
           statusBarColor: 'transparent',

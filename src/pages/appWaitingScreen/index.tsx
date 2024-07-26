@@ -1,12 +1,8 @@
 import { commonStyles } from '@/common/styles';
 import RootView from '@/components/RootView';
 import { apiGetGlobalConfigs } from '@/services/globalConfigService';
-import { appGlobalConfigsStore, deviceInfoStore } from '@/store';
-import {
-  initStorageData,
-  initGlobalTools,
-  initBaseConfigs,
-} from '@/utils/loadAppTools';
+import { appGlobalConfigsStore, deviceInfoStore, storageLoginStatusStore } from '@/store';
+import { initBaseConfigs } from '@/utils/loadAppTools';
 import {
   createContext,
   useContext,
@@ -69,9 +65,11 @@ function MainView() {
   const { setEndInit } = useContext(AppWaitingScreenCtx);
 
   // 初始化状态state
-  const [second, setSecond] = useState(5);
-  const [initCompleted, setInitCompleted] = useState(false);
-  const [hideSplashScreen, setHideSplashScreen] = useState(false);
+  const [second, setSecond] = useState(5); // 广告读秒
+  const [appLayoutInfoInited, setaAppLayoutInfoInited] = useState(false); // APP布局信息是否初始化完成
+  const [baseConfigsInited, setBaseConfigsInited] = useState(false); // APP必要基础设置初始化是否完成
+  const [allInited, setAllInited] = useState(false); // 所有设置初始化是否完成
+  const [hideSplashScreen, setHideSplashScreen] = useState(false); // 启动屏是否关闭
 
   // 获取设备尺寸相关信息
   const {
@@ -84,7 +82,7 @@ function MainView() {
   const setDeviceInfo = useSetRecoilState(deviceInfoStore);
   const setAppGlobalConfigs = useSetRecoilState(appGlobalConfigsStore);
 
-  // 初始化设备信息
+  // 初始化设备布局信息
   useLayoutEffect(() => {
     const {
       width: screenWidth,
@@ -114,35 +112,37 @@ function MainView() {
       windowFontScale,
       windowScale,
     }));
+    setaAppLayoutInfoInited(true);
   }, [safeBottom, safeLeft, safeRight, safeTop, setDeviceInfo]);
 
-  // 初始化APP必要设置
+  // 初始化APP必要基础设置
+  const setStorageLoginStatusStore = useSetRecoilState(storageLoginStatusStore);
   useEffect(() => {
     const init = async () => {
-      // 初始化全局方法
-      initGlobalTools();
-      // 初始化本地storage
-      initStorageData();
-      /**
-       * 初始化基础信息信息
-       *
-       * 警告：
-       * initBaseConfigs方法 “必须” 在所有涉及网络请求方法之前调用！！！
-       */
       await initBaseConfigs();
-      const { data, success } = await apiGetGlobalConfigs();
-      if (success) {
-        setAppGlobalConfigs(data);
-      }
-      setInitCompleted(true);
+      setBaseConfigsInited(true);
     };
     init();
-  }, [setAppGlobalConfigs]);
+  }, [setStorageLoginStatusStore]);
+
+  // 请求App后端配置信息
+  useEffect(() => {
+    if (baseConfigsInited) {
+      const init = async () => {
+        const { data, success } = await apiGetGlobalConfigs();
+        if (success) {
+          setAppGlobalConfigs(data);
+        }
+        setAllInited(true);
+      };
+      init();
+    }
+  }, [baseConfigsInited, setAppGlobalConfigs]);
 
   // 关闭启动屏幕
   useEffect(() => {
     let timer: string | number | NodeJS.Timeout | undefined;
-    if (initCompleted) {
+    if (allInited && appLayoutInfoInited) {
       timer = setTimeout(() => {
         setHideSplashScreen(true);
         SplashScreen.hide();
@@ -151,7 +151,7 @@ function MainView() {
     return () => {
       clearTimeout(timer);
     };
-  }, [initCompleted]);
+  }, [allInited, appLayoutInfoInited]);
 
   // 关闭初始化屏幕
   useEffect(() => {
