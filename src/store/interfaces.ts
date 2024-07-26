@@ -24,8 +24,8 @@ interface DeviceInfoType {
   windowScale: number;
 }
 
-interface UserInfoType {
-  
+interface AppInfoStorageType {
+  appIsLoaded: boolean;
 }
 
-export type { AppGlobalConfigsType, DeviceInfoType, UserInfoType };
+export type { AppGlobalConfigsType, DeviceInfoType, AppInfoStorageType };
